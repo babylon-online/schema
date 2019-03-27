@@ -1,0 +1,23 @@
+{
+  "@context": "concept_scheme.jsonld",
+  "@type": "skos:ConceptScheme",
+  "id": "URI",
+  "created": "DATE",
+  "creator": {
+    "id": "@person_id",
+    "name": "full name"
+  },
+  "contributors": [{
+    "id": "@person_id",
+    "name": "full name"
+  }],
+  "title": {
+    "language": "STRING"
+  },
+  "note": {
+    "language": "STRING"
+  },
+  "hasTopConcept": [{
+    "id": "@vocabulary_concept_id"
+  }]
+}

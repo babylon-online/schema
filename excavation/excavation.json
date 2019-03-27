@@ -1,0 +1,17 @@
+{
+  "id": "Integer",
+  "name": "String",
+  "abbr": "String",
+  "description": "Text",
+  "started": "Date",
+  "ended": "Date",
+  "people": [
+    {
+      "id": "@person_id",
+      "participationStart": "Date",
+      "participationEnd": "Date",
+      "jobTitle": "String",
+      "comment": "Text"
+    }
+  ]
+}

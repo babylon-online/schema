@@ -1,0 +1,91 @@
+{
+  "id": "URI",
+  "identification": {
+    "excavation": "@excavation_id",
+    "excavationNumber": "Integer",
+    "excavationNumberIndex": {
+      "value": "Integer",
+      "type": {"enum": ["alphabetical", "numerical"]}
+    },
+    "collection": "@collection_id",
+    "collectionNumber": "Integer",
+    "collectionNumberIndex": {
+      "value": "Integer",
+      "type": {"enum": ["alphabetical", "numerical"]}
+    },
+    "others": [
+      {
+        "label": "String",
+        "value": "String"
+      }
+    ],
+    "comment": "Text",
+    "joins": [
+      {
+        "excavatedObject": "@excavated_object_id",
+        "comment": "Text"
+      }
+    ]
+  },
+  "excavation": {
+    "unit": "@excavation_unit_id",
+    "comment": "Text",
+    "date": "Date",
+    "geometry": {
+      "type": "Point, Polygon, MultiPoint, MultiPolygon",
+      "coordinates": ["E,N,H"]
+    },
+    "leveling": {
+      "value": "Dezimal",
+      "unit": {"enum": ["Meter (relative)", "Meter (absolute)"]}
+    }
+  },
+  "title": "String",
+  "description": "Text",
+  "measurements": [
+    {
+      "type": {"enum": ["Length", "Width", "Height", "Diamenter", "Weight", "Depth"]},
+      "value": "Integer",
+      "unit": {"enum": ["mm", "cm", "m", "zoll", "mg", "g", "kg"]}
+    }
+  ],
+  "locations": [
+    {
+      "value": "String",
+      "since": "Date"
+    }
+  ],
+  "classifications": [
+    "@vocabulary_concept_ids"
+  ],
+  "materials": [
+    "@vocabulary_concept_ids"
+  ],
+  "techniques": [
+    "@vocabulary_concept_ids"
+  ],
+  "periods": [
+    "@vocabulary_concept_ids"
+  ],
+  "tags": [
+    "@vocabulary_concept_ids"
+  ],
+  "citationItems": [
+    {
+      "id": "URI",
+      "itemData": {
+        "id": "@bibliography_item_id"
+      },
+      "locator": "String",
+      "label": {"enum": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"]},
+      "prefix": "String",
+      "suffix": "String"
+    }
+  ],
+  "archivalResources": [
+    {
+      "property": "@vocabulary_concept_id",
+      "id": "@archival_resource_id"
+    }
+  ]
+}

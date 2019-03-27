@@ -1,0 +1,7 @@
+{
+  "id": "Integer",
+  "name": "String",
+  "abbr": "String",
+  "description": "Text",
+  "holder": "@holder_id"
+}

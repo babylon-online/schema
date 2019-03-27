@@ -1,0 +1,94 @@
+{
+  "id": "String",
+  "identification": {
+    "collection": "@collection_id",
+    "container": "@archival_resource_id",
+    "serialNumber": "String",
+    "callNumber": {
+      "value": "String",
+      "temporary": "Boolean"
+    },
+    "numberOfPieces": "String"
+  },
+  "title": "String",
+  "label": "String",
+  "provenance": "Text",
+  "summary": "Text",
+  "comment": "Text",
+  "measurements": [
+    {
+      "type": {"enum": ["Length", "Width", "Height", "Diamenter", "Weight", "Depth"]},
+      "value": "Integer",
+      "unit": {"enum": ["mm", "cm", "m", "zoll", "mg", "g", "kg"]}
+    }
+  ],
+  "locations": [
+    {
+      "value": "String",
+      "since": "Date"
+    }
+  ],
+  "classifications": [
+    "@vocabulary_concept_ids"
+  ],
+  "materials": [
+    "@vocabulary_concept_ids"
+  ],
+  "techniques": [
+    "@vocabulary_concept_ids"
+  ],
+  "tags": [
+    "@vocabulary_concept_ids"
+  ],
+  "accessibility": {
+    "condition": "String",
+    "restrictions": "String"
+  },
+  "runtime": {
+    "start": "Date",
+    "end": "Date"
+  },
+  "authors": [
+    {
+      "name": "String",
+      "id": "@person_id"
+    }
+  ],
+  "attachments": [
+    {
+      "uri": "String",
+      "mimeType": "String"
+    }
+  ],
+  "citationItems": [
+    {
+      "id": "URI",
+      "itemData": {
+        "id": "@bibliography_item_id"
+      },
+      "locator": "String",
+      "label": {"enum": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"]},
+      "prefix": "String",
+      "suffix": "String"
+    }
+  ],
+  "excavatedObjects": [
+    {
+      "property": "@vocabulary_concept_id",
+      "id": "@excavated_object_id"
+    }
+  ],
+  "excavationUnits": [
+    {
+      "property": "@vocabulary_concept_id",
+      "id": "@excavation_unit_id"
+    }
+  ],
+
+  
+  "options": {
+    "relevance": ["Strings"],
+    "relevanceComment": "Text",
+    "digitalizationRemarks": ["Strings"]
+  }
+}

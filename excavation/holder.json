@@ -1,0 +1,14 @@
+{
+  "name": "String",
+  "adress": "Text",
+  "description": "Text",
+  "people": [
+    {
+      "id": "@person_id",
+      "participationStart": "Date",
+      "participationEnd": "Date",
+      "jobTitle": "String",
+      "comment": "Text"
+    }
+  ]
+}

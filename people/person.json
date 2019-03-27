@@ -1,0 +1,43 @@
+{
+  "id": "URI",
+  "given": "String",
+  "family": "String",
+  "droppingParticle": "String",
+  "nonDroppingParticle": "String",
+  "suffix": "String",
+  "literal": "String",
+  "description": "Text with markup cf. schema.org",
+  "sameAs": [
+    {
+      "label": "String",
+      "uri": "String"
+    }
+  ],
+  "classifications": [
+    "@vocabulary_concept_ids"
+  ],
+  "archivalResources": [
+    {
+      "property": "@vocabulary_concept_id",
+      "id": "@archival_resource_id"
+    }
+  ],
+  "affiliations": [
+    "@excavation_ids", "@holder_ids"
+  ],
+  "citationItems": [
+    {
+      "id": "URI",
+      "itemData": {
+        "id": "@bibliography_item_id"
+      },
+      "locator": "String",
+      "label": {"enum": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"]},
+      "prefix": "String",
+      "suffix": "String"
+    }
+  ],
+  "citationData": [
+    "@bibliography_item_ids"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "@context": "concept.jsonld",
+  "@type": "skos:Concept",
+  "id": "URI",
+  "created": "DATE",
+  "issued": "DATE",
+  "modified": "DATE",
+  "status": "Unstable, Testing, Stable",
+  "creator": {
+    "id": "@person_id",
+    "name": "full name"
+  },
+  "contributors": [{
+    "id": "@person_id",
+    "name": "full name"
+  }],
+  "publisher": {
+    "id": "@person_id",
+    "name": "full name"
+  },
+  "inScheme": "@vocabulary_concept_scheme_id",
+  "topConceptOf": "@vocabulary_concept_scheme_id",
+  "prefLabel": {
+    "some-language": "STRING"
+  },
+  "altLabel": {
+    "some-language": "STRING"
+  },
+  "hiddenLabel": {
+    "some-language": "STRING"
+  },
+  "broader": [{
+    "id": "@vocabulary_concept_id"
+  }],
+  "narrower": [{
+    "id": "@vocabulary_concept_id"
+  }],
+  "related": [{
+    "id": "@vocabulary_concept_id"
+  }],
+  "broaderTransitive": [{
+    "id": "@vocabulary_concept_id"
+  }],
+  "narrowerTransitive": [{
+    "id": "@vocabulary_concept_id"
+  }],
+  "scopeNote": {
+    "language": "STRING"
+  },
+  "definition": {
+    "language": "STRING"
+  },
+  "example": {
+    "language": "STRING"
+  },
+  "historyNote": {
+    "language": "STRING"
+  },
+  "editorialNote": {
+    "language": "STRING"
+  },
+  "changeNote": {
+    "language": "STRING"
+  },
+  "closeMatch": [{
+    "id": "URI"
+  }],
+  "exactMatch": [{
+    "id": "URI"
+  }],
+  "broadMatch": [{
+    "id": "URI"
+  }],
+  "narrowMatch": [{
+    "id": "URI"
+  }],
+  "relatedMatch": [{
+    "id": "URI"
+  },
+  {
+    "id": "another URI"
+  }]
+}
