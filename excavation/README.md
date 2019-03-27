@@ -1,6 +1,2 @@
 
-## Structure
-
-## License
-
-## List of contributors
+## Excavation data schema

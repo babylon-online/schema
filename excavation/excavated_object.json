@@ -84,7 +84,7 @@
   ],
   "archivalResources": [
     {
-      "property": "@vocabulary_concept_id",
+      "property": "enum: ['illusstrated'...]",
       "id": "@archival_resource_id"
     }
   ]

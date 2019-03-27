@@ -4,7 +4,7 @@
   "description": "Text",
   "people": [
     {
-      "id": "@person_id",
+      "personData": {"id": "@person_id"},
       "participationStart": "Date",
       "participationEnd": "Date",
       "jobTitle": "String",

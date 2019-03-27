@@ -8,7 +8,7 @@
   },
   "contexts": [
     {
-      "property": "@vocabulary_concept_id",
+      "property": "enum: ['within'...]",
       "id": "@excavation_unit_id"
     }
   ],
@@ -29,7 +29,7 @@
   ],
   "archivalResources": [
     {
-      "property": "@vocabulary_concept_id",
+      "property": "enum: ['within'...]",
       "id": "@archival_resource_id"
     }
   ]

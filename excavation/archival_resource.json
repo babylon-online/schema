@@ -74,13 +74,13 @@
   ],
   "excavatedObjects": [
     {
-      "property": "@vocabulary_concept_id",
+      "property": "enum: ['illustrated'...]",
       "id": "@excavated_object_id"
     }
   ],
   "excavationUnits": [
     {
-      "property": "@vocabulary_concept_id",
+      "property": "enum: ['cited'...]",
       "id": "@excavation_unit_id"
     }
   ],
