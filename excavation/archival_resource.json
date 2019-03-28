@@ -1,45 +1,80 @@
 {
-  "id": "String",
-  "identification": {
-    "collection": "@collection_id",
-    "container": "@archival_resource_id",
-    "serialNumber": "String",
+  "id": "uuid",
+  "collectionData": {
+    "id": "@collection_id",
+    "abbr": "String",
+    "name": "String",
+    "holderData": {
+      "id": "@holder_id",
+      "name": "String"
+    }
+  },
+  "containerData": {
+    "id": "@archival_resource_id",
     "callNumber": {
       "value": "String",
       "temporary": "Boolean"
-    },
-    "numberOfPieces": "String"
+    }
   },
-  "title": "String",
+  "serialNumber": "String",
+  "callNumber": {
+    "value": "String",
+    "temporary": "Boolean"
+  },
+  "numberOfPieces": "String",
+  "title": {
+    "language": "String"
+  },
   "label": "String",
-  "provenance": "Text",
-  "summary": "Text",
-  "comment": "Text",
-  "measurements": [
-    {
-      "type": {"enum": ["Length", "Width", "Height", "Diamenter", "Weight", "Depth"]},
-      "value": "Integer",
-      "unit": {"enum": ["mm", "cm", "m", "zoll", "mg", "g", "kg"]}
-    }
-  ],
-  "locations": [
-    {
-      "value": "String",
-      "since": "Date"
-    }
-  ],
-  "classifications": [
-    "@vocabulary_concept_ids"
-  ],
-  "materials": [
-    "@vocabulary_concept_ids"
-  ],
-  "techniques": [
-    "@vocabulary_concept_ids"
-  ],
-  "tags": [
-    "@vocabulary_concept_ids"
-  ],
+  "provenance": "String",
+  "summary": {
+    "language": "String"
+  },
+  "comment": {
+    "language": "String"
+  },
+  "measurements": [{
+    "type": ["Length", "Width", "Height", "Diamenter", "Weight", "Depth"],
+    "value": "Number",
+    "unit": ["mm", "cm", "m", "zoll", "mg", "g", "kg"]
+  }],
+  "locations": [{
+    "raw": "String",
+    "deposited": "Date",
+    "responsible": {
+      "name": "String",
+      "personData": {
+        "id": "@person_id",
+        "name": "String"
+      }
+    },
+    "comment": {
+      "language": "String"
+    },
+    "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
+    "coordinates": ["lon,lat,alt"]
+  }],
+  "tags": [{
+    "vocabularyData": {
+      "id": "@vocabulary_concept_id",
+      "prefLabel": {
+        "language": "String"
+      },
+      "facetData": {
+        "id": "@vocabulary_concept_id",
+        "prefLabel": {
+          "language": "String"
+        }
+      },
+      "schemaData": {
+        "id": "@vocabulary_concept_schema_id",
+        "title": {
+          "language": "String"
+        }
+      }
+    },
+    "relevance": "Number"
+  }],
   "accessibility": {
     "condition": "String",
     "restrictions": "String"
@@ -48,44 +83,47 @@
     "start": "Date",
     "end": "Date"
   },
-  "authors": [
-    {
-      "name": "String",
+  "mentionedPeople": [{
+    "role": ["Author", "Receipient"],
+    "name": "String",
+    "personData": {
       "id": "@person_id"
     }
-  ],
-  "attachments": [
-    {
-      "uri": "String",
-      "mimeType": "String"
-    }
-  ],
-  "citationItems": [
-    {
-      "id": "URI",
-      "itemData": {
-        "id": "@bibliography_item_id"
-      },
-      "locator": "String",
-      "label": {"enum": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"]},
-      "prefix": "String",
-      "suffix": "String"
-    }
-  ],
-  "excavatedObjects": [
-    {
-      "property": "enum: ['illustrated'...]",
+  }],
+  "citationItems": [{
+    "id": "URI",
+    "itemData": {
+      "id": "@citation_data_item_id",
+      "type": "String"
+    },
+    "locator": "String",
+    "label": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"],
+    "prefix": "String",
+    "suffix": "String"
+  }],
+  "excavatedObjects": [{
+    "property": "['illustrated'...]",
+    "excavatedObjectData": {
       "id": "@excavated_object_id"
     }
-  ],
-  "excavationUnits": [
-    {
-      "property": "enum: ['cited'...]",
-      "id": "@excavation_unit_id"
-    }
-  ],
-
-  
+  }],
+  "excavationUnits": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "property": "['cited',...]",
+        "type": "Feature",
+        "id": "@excavation_unit_id",
+        "geometry": {
+          "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
+          "coordinates": ["lon,lat,alt"]
+        },
+        "properties": {
+          "title": "String"
+        }
+      }
+    ]
+  },
   "options": {
     "relevance": ["Strings"],
     "relevanceComment": "Text",

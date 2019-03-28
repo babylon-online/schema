@@ -1,36 +1,55 @@
 {
-  "id": "",
-  "title": "String",
-  "description": "Text",
+  "type": "Feature",
+  "id": "uuid",
   "geometry": {
-    "type": {"enum": ["Point", "Polygon", "MultiPoint", "MultiPolygon"]},
-    "coordinates": ["E,N,H"]
+    "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
+    "coordinates": ["lon,lat,alt"]
   },
-  "contexts": [
-    {
-      "property": "enum: ['within'...]",
-      "id": "@excavation_unit_id"
-    }
-  ],
-  "excavatedObjects": [
-    "@excavated_object_ids"
-  ],
+  "properties": {
+    "title": "String"
+  },
+  "description": "String",
+  "comment": "String",
+  "excavated": "date",
+  "excavatedObjectData": {
+    "id": "@excavated_object_id"
+  },
+  "contexts": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "property": "['within','sameAs'...]",
+        "type": "Feature",
+        "id": "@excavation_unit_id",
+        "geometry": {
+          "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
+          "coordinates": ["lon,lat,alt"]
+        },
+        "properties": {
+          "title": "String"
+        }
+      }
+    ]
+  },
   "citationItems": [
     {
       "id": "URI",
       "itemData": {
-        "id": "@bibliography_item_id"
+        "id": "@citation_data_item_id",
+        "type": "String"
       },
       "locator": "String",
-      "label": {"enum": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"]},
+      "label": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"],
       "prefix": "String",
       "suffix": "String"
     }
   ],
   "archivalResources": [
     {
-      "property": "enum: ['within'...]",
-      "id": "@archival_resource_id"
+      "property": "enum: ['cited'...]",
+      "archivalResourceData": {
+        "id": "@archival_resource_id"
+      }
     }
   ]
 }

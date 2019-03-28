@@ -1,17 +1,26 @@
 {
-  "id": "Integer",
+  "id": "uuid",
   "name": "String",
   "abbr": "String",
-  "description": "Text",
+  "description": {
+    "language": "String"
+  },
   "started": "Date",
   "ended": "Date",
   "people": [
     {
-      "personData": {"id": "@person_id"},
+      "personData": {
+        "id": "@person_id"
+      },
       "participationStart": "Date",
       "participationEnd": "Date",
-      "jobTitle": "String",
-      "comment": "Text"
+      "role": "vocab || String",
+      "comment": {
+        "language": "String"
+      }
     }
+  ],
+  "excavatedObjects": [
+    "@excavated_object_ids"
   ]
 }

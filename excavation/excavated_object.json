@@ -1,91 +1,116 @@
 {
-  "id": "URI",
-  "identification": {
-    "excavation": "@excavation_id",
-    "excavationNumber": "Integer",
-    "excavationNumberIndex": {
-      "value": "Integer",
-      "type": {"enum": ["alphabetical", "numerical"]}
-    },
-    "collection": "@collection_id",
-    "collectionNumber": "Integer",
-    "collectionNumberIndex": {
-      "value": "Integer",
-      "type": {"enum": ["alphabetical", "numerical"]}
-    },
-    "others": [
-      {
-        "label": "String",
-        "value": "String"
-      }
-    ],
-    "comment": "Text",
-    "joins": [
-      {
-        "excavatedObject": "@excavated_object_id",
-        "comment": "Text"
-      }
-    ]
+  "id": "uuid",
+  "excavationData": {
+    "id": "@excavation_id",
+    "abbr": "String",
+    "name": "String"
   },
-  "excavation": {
-    "unit": "@excavation_unit_id",
-    "comment": "Text",
-    "date": "Date",
-    "geometry": {
-      "type": "Point, Polygon, MultiPoint, MultiPolygon",
-      "coordinates": ["E,N,H"]
-    },
-    "leveling": {
-      "value": "Dezimal",
-      "unit": {"enum": ["Meter (relative)", "Meter (absolute)"]}
+  "excavationNumber": "Number",
+  "excavationNumberIndex": {
+    "value": "Number",
+    "type": "alphabetical, numerical"
+  },
+  "collectionData": {
+    "id": "@collection_id",
+    "abbr": "String",
+    "name": "String",
+    "holderData": {
+      "id": "@holder_id",
+      "name": "String"
     }
   },
-  "title": "String",
-  "description": "Text",
-  "measurements": [
-    {
-      "type": {"enum": ["Length", "Width", "Height", "Diamenter", "Weight", "Depth"]},
-      "value": "Integer",
-      "unit": {"enum": ["mm", "cm", "m", "zoll", "mg", "g", "kg"]}
-    }
-  ],
-  "locations": [
-    {
-      "value": "String",
-      "since": "Date"
-    }
-  ],
-  "classifications": [
-    "@vocabulary_concept_ids"
-  ],
-  "materials": [
-    "@vocabulary_concept_ids"
-  ],
-  "techniques": [
-    "@vocabulary_concept_ids"
-  ],
-  "periods": [
-    "@vocabulary_concept_ids"
-  ],
-  "tags": [
-    "@vocabulary_concept_ids"
-  ],
-  "citationItems": [
-    {
-      "id": "URI",
-      "itemData": {
-        "id": "@bibliography_item_id"
+  "collectionNumber": "Number",
+  "collectionNumberIndex": {
+    "value": "Number",
+    "type": "alphabetical, numerical"
+  },
+  "others": [{
+    "label": "String",
+    "value": "String"
+  }],
+  "comment": {
+    "language": "String"
+  },
+  "joins": [{
+    "excavatedObjectData": {
+      "id": "@excavated_object_id"
+    },
+    "comment": {
+      "language": "String"
+    },
+    "confidence": "Number"
+  }],
+  "excavationUnitData": {
+    "id": "@excavation_unit_id",
+  },
+  "title": {
+    "language": "String"
+  },
+  "description": [{
+    "author": "String",
+    "authorData": {
+      "id": "@person_id",
+      "name": "String"
+    },
+    "language": "String"
+  }],
+  "measurements": [{
+    "type": ["Length", "Width", "Height", "Diamenter", "Weight", "Depth"],
+    "value": "Integer",
+    "unit": ["mm", "cm", "m", "zoll", "mg", "g", "kg"]
+  }],
+  "locations": [{
+    "raw": "String",
+    "deposited": "Date",
+    "responsible": {
+      "name": "String",
+      "personData": {
+        "id": "@person_id",
+        "name": "String"
+      }
+    },
+    "comment": {
+      "language": "String"
+    },
+    "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
+    "coordinates": ["lon,lat,alt"]
+  }],
+  "tags": [{
+    "vocabularyData": {
+      "id": "@vocabulary_concept_id",
+      "prefLabel": {
+        "language": "String"
       },
-      "locator": "String",
-      "label": {"enum": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"]},
-      "prefix": "String",
-      "suffix": "String"
-    }
-  ],
-  "archivalResources": [
-    {
-      "property": "enum: ['illusstrated'...]",
+      "facetData": {
+        "id": "@vocabulary_concept_id",
+        "prefLabel": {
+          "language": "String"
+        }
+      },
+      "schemaData": {
+        "id": "@vocabulary_concept_schema_id",
+        "title": {
+          "language": "String"
+        }
+      }
+    },
+    "relevance": "Number"
+  }],
+  "citationItems": [{
+    "id": "URI",
+    "itemData": {
+      "id": "@citation_data_item_id",
+      "type": "String"
+    },
+    "locator": "String",
+    "label": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"],
+    "prefix": "String",
+    "suffix": "String"
+  }],
+  "archivalResources": [{
+    "property": "enum: ['cited'...]",
+    "archivalResourceData": {
       "id": "@archival_resource_id"
     }
-  ]
+  }]
 }

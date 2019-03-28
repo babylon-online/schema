@@ -20,14 +20,15 @@
   },
   "inScheme": "@vocabulary_concept_scheme_id",
   "topConceptOf": "@vocabulary_concept_scheme_id",
+  "facet": "@vocabulary_concept_id",
   "prefLabel": {
-    "some-language": "STRING"
+    "language": "STRING"
   },
   "altLabel": {
-    "some-language": "STRING"
+    "language": "STRING"
   },
   "hiddenLabel": {
-    "some-language": "STRING"
+    "language": "STRING"
   },
   "broader": [{
     "id": "@vocabulary_concept_id"

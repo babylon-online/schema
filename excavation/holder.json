@@ -1,14 +1,28 @@
 {
+  "id": "uuid",
   "name": "String",
-  "adress": "Text",
-  "description": "Text",
+  "description": {
+    "language": "String"
+  },
+  "location" : {
+    "adress": "String",
+    "type": "Point",
+    "coordinates": ["lon,lat,alt"]
+  },
   "people": [
     {
-      "personData": {"id": "@person_id"},
+      "personData": {
+        "id": "@person_id"
+      },
       "participationStart": "Date",
       "participationEnd": "Date",
-      "jobTitle": "String",
-      "comment": "Text"
+      "role": "Vocab || String",
+      "comment": {
+        "language": "String"
+      }
     }
+  ],
+  "collections": [
+    "@collection_ids"
   ]
 }

@@ -2,6 +2,7 @@
 See the files [`concept.json`, `concept_scheme.json`, `concept.jsonld`, `concept_scheme.jsonld`] for an outline of the current structure.
 
 We opted for using `json` as fileformat, while being conform with the _SKOS Simple Knowledge Organization System_ described [here](https://www.w3.org/TR/skos-primer/). For our usage as a lookup vocabulary, `json` fulfills the needs of being fast and easily usable. We extend our json with json-ld on the domain level for those applications which like to use it.
+Because there is no _facet_ element in skos, this is the only element we declared and identified it as a skos:broaderTransitive.
 
 * https://www.w3.org/TR/skos-primer/
 * https://json-ld.org/spec/latest/json-ld/

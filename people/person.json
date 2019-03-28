@@ -1,12 +1,14 @@
 {
-  "id": "URI",
+  "id": "uuid",
   "given": "String",
   "family": "String",
   "droppingParticle": "String",
   "nonDroppingParticle": "String",
   "suffix": "String",
   "literal": "String",
-  "description": "Text with markup cf. schema.org",
+  "description": {
+    "language": "String"
+  },
   "sameAs": [
     {
       "label": "String",
