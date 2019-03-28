@@ -108,7 +108,7 @@
     "suffix": "String"
   }],
   "archivalResources": [{
-    "property": "enum: ['cited'...]",
+    "property": ["isReferencedIn", "registrationDocumentedIn", "isSketchedIn", "isPhotographedIn"],
     "archivalResourceData": {
       "id": "@archival_resource_id"
     }

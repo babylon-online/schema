@@ -1,7 +1,7 @@
 {
   "@context": "concept.jsonld",
   "@type": "skos:Concept",
-  "id": "URI",
+  "id": "uuid",
   "created": "DATE",
   "issued": "DATE",
   "modified": "DATE",

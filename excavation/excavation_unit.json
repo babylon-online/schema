@@ -10,13 +10,12 @@
   },
   "description": "String",
   "comment": "String",
-  "excavated": "date",
   "excavatedObjectData": {
     "id": "@excavated_object_id"
   },
   "contexts": [
     {
-      "property": "['within'...]",
+      "property": ["contains", "within", "composedOf", "formsPartOf"],
       "excavationUnitData": {
         "id": "@excavation_unit_id",
         "type": "Feature",
@@ -30,6 +29,27 @@
       }
     }
   ],
+  "tags": [{
+    "vocabularyData": {
+      "id": "@vocabulary_concept_id",
+      "prefLabel": {
+        "language": "String"
+      },
+      "facetData": {
+        "id": "@vocabulary_concept_id",
+        "prefLabel": {
+          "language": "String"
+        }
+      },
+      "schemaData": {
+        "id": "@vocabulary_concept_schema_id",
+        "title": {
+          "language": "String"
+        }
+      }
+    },
+    "relevance": "Number"
+  }],
   "citationItems": [{
     "id": "URI",
     "itemData": {
@@ -42,7 +62,7 @@
     "suffix": "String"
   }],
   "archivalResources": [{
-    "property": "enum: ['cited'...]",
+    "property": ["isReferencedIn", "registrationDocumentedIn", "isSketchedIn", "isPhotographedIn"],
     "archivalResourceData": {
       "id": "@archival_resource_id"
     }

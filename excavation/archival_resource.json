@@ -83,6 +83,7 @@
     "start": "Date",
     "end": "Date"
   },
+  "authored": "date",
   "mentionedPeople": [{
     "role": ["Author", "Receipient"],
     "name": "String",
@@ -102,14 +103,14 @@
     "suffix": "String"
   }],
   "excavatedObjects": [{
-    "property": "['illustrated'...]",
+    "property": ["references", "registers", "sketches", "isPhotographOf"],
     "excavatedObjectData": {
       "id": "@excavated_object_id"
     }
   }],
   "excavationUnits": [
     {
-      "property": "['cited'...]",
+      "property": ["references", "registers", "sketches", "isPhotographOf"],
       "excavationUnitData": {
         "id": "@excavation_unit_id",
         "type": "Feature",

@@ -29,3 +29,6 @@ Translators are available:
 ## Discussions
 * Very good posting on the origins of json-ld: http://manu.sporny.org/2014/json-ld-origins-2/
 * https://www.w3.org/2013/dwbp/wiki/RDF_AND_JSON-LD_UseCases
+
+## Todo
+Facet for archaeological classes (e.g. "Stratigraphic (Erde, Kleinfund, Mauer, Gebäude, Fussboden, Interface)", "Artificial (Areal, Quadrant, Testschnitt)", "Site (Tell, City)").
