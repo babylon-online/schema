@@ -109,20 +109,18 @@
   }],
   "excavationUnits": {
     "type": "FeatureCollection",
-    "features": [
-      {
-        "property": "['cited',...]",
-        "type": "Feature",
-        "id": "@excavation_unit_id",
-        "geometry": {
-          "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
-          "coordinates": ["lon,lat,alt"]
-        },
-        "properties": {
-          "title": "String"
-        }
+    "features": [{
+      "property": "['cited',...]",
+      "type": "Feature",
+      "id": "@excavation_unit_id",
+      "geometry": {
+        "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
+        "coordinates": ["lon,lat,alt"]
+      },
+      "properties": {
+        "title": "String"
       }
-    ]
+    }]
   },
   "options": {
     "relevance": ["Strings"],
