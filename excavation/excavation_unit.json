@@ -1,5 +1,5 @@
 {
-  "type": "typeof Feature",
+  "type": "Feature",
   "id": "uuid",
   "geometry": {
     "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
@@ -14,21 +14,22 @@
   "excavatedObjectData": {
     "id": "@excavated_object_id"
   },
-  "contexts": {
-    "type": "FeatureCollection",
-    "features": [{
+  "contexts": [
+    {
       "property": "['within'...]",
-      "type": "Feature",
-      "id": "@excavation_unit_id",
-      "geometry": {
-        "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
-        "coordinates": ["lon,lat,alt"]
-      },
-      "properties": {
-        "title": "String"
+      "excavationUnitData": {
+        "id": "@excavation_unit_id",
+        "type": "Feature",
+        "geometry": {
+          "type": ["Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon"],
+          "coordinates": ["lon,lat,alt"]
+        },
+        "properties": {
+          "title": "String"
+        }
       }
-    }]
-  },
+    }
+  ],
   "citationItems": [{
     "id": "URI",
     "itemData": {
