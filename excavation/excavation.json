@@ -5,22 +5,46 @@
   "description": {
     "language": "String"
   },
-  "started": "Date",
-  "ended": "Date",
-  "people": [
+  "seasons": [
     {
-      "personData": {
-        "id": "@person_id"
+      "happend": {
+        "date-parts": [
+          [
+            "1899", "10", "14"
+          ],
+          [
+            "1917", "4", "5"
+          ]
+        ]
       },
-      "participationStart": "Date",
-      "participationEnd": "Date",
-      "role": "vocab || String",
-      "comment": {
-        "language": "String"
-      }
+      "people": [
+        {
+          "name": "String",
+          "personData": {
+            "id": "@person_id"
+          },
+          "participated": {
+            "date-parts": [
+              [
+                "1899", "10", "14"
+              ],
+              [
+                "1917", "4", "5"
+              ]
+            ]
+          },
+          "role": "vocab || String",
+          "comment": {
+            "language": "String"
+          }
+        }
+      ],
     }
   ],
   "excavatedObjects": [
     "@excavated_object_ids"
+  ],
+  "excavationUnits": [
+    "@excavation_unit_ids"
   ]
 }

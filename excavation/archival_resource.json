@@ -40,7 +40,11 @@
   }],
   "locations": [{
     "raw": "String",
-    "deposited": "Date",
+    "deposited": {
+      "date-parts": [
+          "1960", "10", "14"
+      ]
+    },
     "responsible": {
       "name": "String",
       "personData": {
@@ -80,10 +84,15 @@
     "restrictions": "String"
   },
   "runtime": {
-    "start": "Date",
-    "end": "Date"
+    "date-parts": [
+      [
+        "1899", "10", "14"
+      ],
+      [
+        "1917", "4", "5"
+      ]
+    ]
   },
-  "authored": "date",
   "mentionedPeople": [{
     "role": ["Author", "Receipient"],
     "name": "String",
@@ -122,6 +131,36 @@
           "title": "String"
         }
       }
+    }
+  ],
+  "creator": [
+    {
+      "name": "String",
+      "personData": {
+        "id": "@person_id"
+      },
+      "role": "String || @vocab_id"
+    },
+  ],
+  "license": "String",
+  "copyrights": [
+    {
+      "holderData": {
+        "id": "@person_id, @holder_id"
+      },
+      "asserted": {
+        "date-parts": [
+            "1960", "10", "14"
+        ]
+      },
+    }
+  ],
+  "attachments": [
+    {
+      "id": "String",
+      "filename": "String",
+      "mimeType": "String",
+      "size": "Number"
     }
   ],
   "options": {

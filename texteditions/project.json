@@ -1,0 +1,20 @@
+{
+  "id": "uuid",
+  "name": "String",
+  "url": "String",
+  "responsible": {
+    "name": "String",
+    "personData": {
+      "id": "@person_id",
+      "name": "String"
+    }
+  },
+  "description": {
+    "language": "String"
+  },
+  "corpus": [
+    {
+      "id": "@text_id"
+    }
+  ]
+}

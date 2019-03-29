@@ -456,7 +456,7 @@
               }]
             }
           },
-          "imagery": {
+          "attachments": {
             "type": "array",
             "items": {
               "id": "file-variable",

@@ -6,6 +6,7 @@ Die Basisstruktur ist csl-json; Zusätze durch uns sind kompatibel im options ha
 * https://github.com/citation-style-language/schema
 * https://github.com/citation-style-language/schema/blob/master/csl-data.json
 * http://docs.citationstyles.org/en/stable/specification.html#appendix-iv-variables
+* http://docs.citationstyles.org/en/stable/primer.html
 * https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html
 
 Einträge in den Bibliograpiedateien sind folgendermaßen benannt/ haben folgende id: pedersen_2018_cut = Nachname erster Autor/Herausgeber, Jahr, erstes, aussagekräftiges Wort des Titels. Der Dateiname im Verzeichnis `data` ist entsprechend, ergänzt durch .json

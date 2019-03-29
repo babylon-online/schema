@@ -52,7 +52,12 @@
       "id": "@person_id",
       "name": "String"
     },
-    "language": "String"
+    "language": "String",
+    "authored": {
+      "date-parts": [
+          "1960", "10", "14"
+      ]
+    }
   }],
   "measurements": [{
     "type": ["Length", "Width", "Height", "Diamenter", "Weight", "Depth"],
@@ -61,7 +66,11 @@
   }],
   "locations": [{
     "raw": "String",
-    "deposited": "Date",
+    "deposited": {
+      "date-parts": [
+          "1960", "10", "14"
+      ]
+    },
     "responsible": {
       "name": "String",
       "personData": {

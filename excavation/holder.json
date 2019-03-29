@@ -14,8 +14,16 @@
       "personData": {
         "id": "@person_id"
       },
-      "participationStart": "Date",
-      "participationEnd": "Date",
+      "participated": {
+        "date-parts": [
+          [
+            "1899", "10", "14"
+          ],
+          [
+            "1917", "4", "5"
+          ]
+        ]
+      },
       "role": "Vocab || String",
       "comment": {
         "language": "String"

@@ -10,6 +10,19 @@
   },
   "description": "String",
   "comment": "String",
+  "excavations": [
+    "@excavation_ids"
+  ],
+  "excavated": {
+    "date-parts": [
+      [
+        "1914", "10", "14"
+      ],
+      [
+        "1915", "10", "15"
+      ]
+    ]
+  },
   "excavatedObjectData": {
     "id": "@excavated_object_id"
   },

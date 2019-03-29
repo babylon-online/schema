@@ -1,0 +1,50 @@
+{
+  "id": "uuid",
+  "sex": "String",
+  "personName": "String",
+  "fatherName": "String",
+  "familyName": "String",
+  "attestations": [
+    {
+      "textData": {
+        "id": "@text_id",
+        "excavatedObjectData": {
+          "id": "@excavated_object_id"
+        },
+        "issued": {
+          "date-parts": [
+            "Jahr", "Monat", "Tag"
+          ]
+        }
+      },
+      "line": "String",
+      "raw": "String",
+      "role": ["Schuldner", "Schreiber", "Zeuge", "Begünstigter", "String"],
+      "relationships": [
+        {
+          "type": ["Husband", "Wife", "Mother", "Brother", "Sister", "Uncle", "Aunt"],
+          "personData": {
+            "id": "@person_id",
+            "personName": "String"
+          }
+        }
+      ],
+      "comment": "String",
+      "confidence": "Number"
+    }
+  ],
+  "citationItems": [
+    {
+      "id": "URI",
+      "itemData": {
+        "id": "@citation_data_item_id",
+        "type": "String"
+      },
+      "locator": "String",
+      "label": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"],
+      "prefix": "String",
+      "suffix": "String"
+    }
+  ]
+
+}

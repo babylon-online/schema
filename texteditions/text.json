@@ -1,0 +1,49 @@
+{
+  "id": "uuid",
+  "projectData": {
+    "id": "@project_id",
+    "name": "String",
+    "responsible": {
+      "name": "String",
+      "personData": {
+        "id": "@person_id",
+        "name": "String"
+      }
+    }
+  },
+  "author": {
+    "name": "String",
+    "personData": {
+      "id": "@person_id"
+    }
+  },
+  "excavatedObjects": [
+    {
+      "id": "@excavated_object_id"
+    }
+  ],
+  "epidocFile": "ex-epidoctemplate.xml",
+  "issued": {
+    "date-parts": [
+      "Jahr", "Monat", "Tag"
+    ]
+  },
+  "date_of_origin": "Rim-Anum.01.10.01",
+	"dates_referenced": "Rim-Anum.01.10.01",
+	"genre": "Administrative",
+	"height": "40",
+	"language": "Sumerian",
+  "citationItems": [
+    {
+      "id": "URI",
+      "itemData": {
+        "id": "@citation_data_item_id",
+        "type": "String"
+      },
+      "locator": "String",
+      "label": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"],
+      "prefix": "String",
+      "suffix": "String"
+    }
+  ]
+}
