@@ -1,5 +1,5 @@
 ## CitationData scheme
-Hierin wird die Struktur der bibliographischen Daten beschrieben. Siehe `citation_data_scheme.json`.
+Hierin wird die Struktur der bibliographischen Daten beschrieben. Siehe `citation_data_scheme.json`. `citation_data_analytics` beinhaltet Informationen welche nicht für eine Veröffentlichung gedacht sind, so z.B. Volltext und Verweise auf andere lizenzbeschränkte Daten.
 
 Die Basisstruktur ist csl-json; Zusätze durch uns sind kompatibel im options hash enthalten (tags, imagery, fullText) - siehe `citation_data_schema.json`
 * https://citationstyles.org/

@@ -1,0 +1,15 @@
+{
+  "id": "uuid",
+  "citationDataItem": {
+    "id": "@citation_data_item_id"
+  },
+  "fullText": "String",
+  "attachments": [
+    {
+      "id": "@file_id",
+      "filename": "String",
+      "mimeType": "String",
+      "size": "String"
+    }
+  ]
+}

@@ -455,35 +455,6 @@
                 }
               }]
             }
-          },
-          "attachments": {
-            "type": "array",
-            "items": {
-              "id": "file-variable",
-              "type": [{
-                "properties": {
-                  "id": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  },
-                  "filename": {
-                    "type": "string"
-                  },
-                  "mimeType": {
-                    "type": "string"
-                  },
-                  "size": {
-                    "type": "number"
-                  }
-                }
-              }]
-            }
-          },
-          "fullText": {
-            "type": "string"
           }
         }
       }
