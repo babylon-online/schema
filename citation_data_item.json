@@ -1,5 +1,7 @@
 {
   "description": "JSON schema for citation data items",
+  "definitions": {
+  },
   "$schema": "http://json-schema.org/draft-03/schema#",
   "id": "https://github.com/toboter/schema/raw/master/citation_data_item.json",
   "type": "object",

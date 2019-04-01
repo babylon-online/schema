@@ -1,5 +1,35 @@
 {
   "description": "JSON Schema for collection of objects",
+  "definitions": {
+    "core": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "abbr": {
+          "type": "string"
+        },
+        "description": {
+          "id": "language-variable",
+          "type": "object",
+          "patternProperties": {
+            "^([a-z]{2})$": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  },
   "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "http://github.com/toboter/schema/raw/master/collection.json",
   "type": "object",
@@ -11,45 +41,9 @@
         "http://github.com/toboter/schema/raw/master/collection.json"
       ]
     },
-    "id": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "name": {
-      "type": "string"
-    },
-    "abbr": {
-      "type": "string"
-    },
-    "description": {
-      "id": "language-variable",
-      "type": "object",
-      "patternProperties": {
-        "^([a-z]{2})$": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
+    "$ref": "#/definitions/core",
     "holder": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": [
-            "string",
-            "number"
-          ]
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
+      "$ref": "holder.json#/definitions/core"
     },
     "excavatedObjects": {
       "type": "array",
@@ -60,7 +54,8 @@
     "archivalResources": {
       "type": "array",
       "items": {
-        "$ref": "http://github.com/toboter/schema/raw/master/archival_resource.json"
+        "$ref": "archival_resource.json#/definitions/core",
+        "default": []
       }
     }
   }
