@@ -1,4 +1,5 @@
 {
+  "schema": "http://github.com/toboter/schema/raw/master/archival_resource.json",
   "id": "uuid",
   "collectionData": {
     "id": "@collection_id",
@@ -93,7 +94,7 @@
       ]
     ]
   },
-  "mentionedPeople": [{
+  "people": [{
     "role": ["Author", "Receipient"],
     "name": "String",
     "personData": {
@@ -132,15 +133,6 @@
         }
       }
     }
-  ],
-  "creator": [
-    {
-      "name": "String",
-      "personData": {
-        "id": "@person_id"
-      },
-      "role": "String || @vocab_id"
-    },
   ],
   "license": "String",
   "copyrights": [

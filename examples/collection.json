@@ -6,7 +6,8 @@
     "language": "String"
   },
   "holderData": {
-    "id": "@holder_id"
+    "id": "@holder_id",
+    "name": "String"
   },
   "excavatedObjects": [
     "@excavated_object_ids"

@@ -1,0 +1,404 @@
+{
+  "description": "JSON Schema for archival resources",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/archival_resource.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "http://github.com/toboter/schema/raw/master/archival_resource.json"
+      ]
+    },
+    "id": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "collectionData": {
+      "$ref": "http://github.com/toboter/schema/raw/master/collection.json",
+      "required": true
+    },
+    "containerData": {
+      "$ref": "http://github.com/toboter/schema/raw/master/archival_resource.json"
+    },
+    "serialNumber": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "callNumber": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "temporary": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "numberOfPieces": {
+      "type": "string"
+    },
+    "title": {
+      "id": "language-variable",
+      "type": "object",
+      "patternProperties": {
+        "^([a-z]{2})$": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "label": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "summary": {
+      "$ref": "language-variable"
+    },
+    "comment": {
+      "$ref": "language-variable"
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "required": true,
+            "enum": [
+              "length",
+              "width",
+              "height",
+              "depth",
+              "diamenter",
+              "weight"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "required": true
+          },
+          "unit": {
+            "type": "string",
+            "required": true,
+            "enum": [
+              "mm",
+              "cm",
+              "m",
+              "zoll",
+              "mg",
+              "g",
+              "kg"
+            ]
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "raw": {
+            "type": "string"
+          },
+          "deposited": {
+            "id": "date-variable",
+            "type": [{
+              "properties": {
+                "date-parts": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    },
+                    "maxItems": 3
+                  },
+                  "maxItems": 2
+                },
+                "circa": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean"
+                  ]
+                },
+                "literal": {
+                  "type": "string"
+                },
+                "raw": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }]
+          },
+          "responsible": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "personData": {
+                "$ref": "person.json"
+              },
+              "additionalProperties": false
+            }
+          },
+          "comment": {
+            "$ref": "language-variable"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Point",
+              "LineString",
+              "Polygon",
+              "MultiPoint",
+              "MultiLineString",
+              "MultiPolygon"
+            ]
+          },
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "oneOf" : [
+                {
+                  "type" : "string",
+                  "minItems": 2,
+                  "maxItems": 3
+                },
+                {
+                  "type" : "array",
+                  "items": {
+                    "type": "string",
+                    "minItems": 2,
+                    "maxItems": 3
+                  }
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "vocabularyData": {
+            "$ref": "vocabulary_concept.json",
+          },
+          "relevance": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "properties": {
+        "condition": {
+          "type": "string"
+        },
+        "restrictions": {
+          "type": "string"
+        }
+      }
+    },
+    "runtime": {
+      "$ref": "date-variable"
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "author",
+              "receipient"
+            ]
+          },
+          "name": "string",
+          "personData": {
+            "$ref": "person.json"
+          }
+        }
+      }
+    },
+    "citationItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "itemsData": {
+            "$ref": "https://github.com/toboter/schema/raw/master/citation_data_item.json"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "enum": [
+              "book",
+              "chapter",
+              "column",
+              "figure",
+              "folio",
+              "issue",
+              "line",
+              "note",
+              "opus",
+              "page",
+              "paragraph",
+              "part",
+              "section",
+              "sub verbo",
+              "verse",
+              "volume"
+            ]
+          },
+          "prefix": {
+            "type": "string"
+          },
+          "suffix": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "excavatedObjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "string",
+            "enum": [
+              "references",
+              "registers",
+              "sketches",
+              "isPhotographOf"
+            ]
+          },
+          "excavatedObjectData": {
+            "$ref": "excavated_object.json"
+          }
+        }
+      }
+    },
+    "excavationUnits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "string",
+            "enum": [
+              "references",
+              "registers",
+              "sketches",
+              "isPhotographOf"
+            ]
+          },
+          "excavationUnitData": {
+            "$ref": "excavation_unit.json"
+          }
+        }
+      }
+    },
+    "license": {
+      "type": "string"
+    },
+    "copyrights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "holderData": {
+            "$ref": "person.json"
+          },
+          "asserted": {
+            "$ref": "date-variable"
+          }
+        }
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "filename": {
+            "type": "string",
+            "required": true
+          },
+          "mimeType": {
+            "type": "string",
+            "required": true
+          },
+          "size": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "options": {
+      "type": "object",
+      "properties": {
+        "relevance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relevanceComment": {
+          "type": "string"
+        },
+        "digitalizationRemarks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
