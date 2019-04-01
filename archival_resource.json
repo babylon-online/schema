@@ -208,7 +208,7 @@
         "type": "object",
         "properties": {
           "vocabularyData": {
-            "$ref": "vocabulary_concept.json",
+            "$ref": "vocabulary_concept.json"
           },
           "relevance": {
             "type": "number"
