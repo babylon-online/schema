@@ -1,0 +1,119 @@
+{
+  "description": "Shared definitions for babylon-online schema",
+  "definitions": {
+    "languages": {
+      "type": "object",
+      "patternProperties": {
+        "^([a-z]{2})$": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "date-variable": {
+      "type": "object",
+      "properties": {
+        "date-parts": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "maxItems": 3
+          },
+          "maxItems": 2
+        },
+        "circa": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "literal": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "measurements": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/measurement"}
+    },
+    "measurement": {
+      "type": "object",
+      "required": ["type", "value", "unit"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "length",
+            "width",
+            "height",
+            "depth",
+            "diamenter",
+            "weight"
+          ]
+        },
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "mm",
+            "cm",
+            "m",
+            "zoll",
+            "mg",
+            "g",
+            "kg"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "geo": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Point",
+            "LineString",
+            "Polygon",
+            "MultiPoint",
+            "MultiLineString",
+            "MultiPolygon"
+          ]
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "oneOf": [{
+              "type": "string",
+              "minItems": 2,
+              "maxItems": 3
+            }, {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minItems": 2,
+                "maxItems": 3
+              }
+            }]
+          }
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/shared.json"
+}

@@ -1,60 +1,60 @@
 {
   "description": "JSON Schema for collection of objects",
   "definitions": {
-    "core": {
+    "info": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "name": {
-          "type": "string"
-        },
-        "abbr": {
-          "type": "string"
-        },
-        "description": {
-          "id": "language-variable",
-          "type": "object",
-          "patternProperties": {
-            "^([a-z]{2})$": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        }
+        "id": {"$ref": "id-attr"},
+        "name": {"$ref": "name-attr"},
+        "abbr": {"$ref": "abbr-attr"},
+        "description": {"$ref": "description-attr"}
       }
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "http://github.com/toboter/schema/raw/master/collection.json",
   "type": "object",
+  "required": ["schema", "id", "abbr", "holderData"],
   "properties": {
     "schema": {
       "type": "string",
-      "required": true,
       "enum": [
         "http://github.com/toboter/schema/raw/master/collection.json"
       ]
     },
-    "$ref": "#/definitions/core",
-    "holder": {
-      "$ref": "holder.json#/definitions/core"
+    "id": {
+      "id": "id-attr",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "name": {
+      "id": "name-attr",
+      "type": "string"
+    },
+    "abbr": {
+      "id": "abbr-attr",
+      "type": "string"
+    },
+    "description": {
+      "id": "description-attr",
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "holderData": {
+      "$ref": "holder.json#/definitions/info"
     },
     "excavatedObjects": {
       "type": "array",
       "items": {
-        "$ref": "excavated_object.json"
+        "$ref": "excavated_object.json#/definitions/info",
+        "default": []
       }
     },
     "archivalResources": {
       "type": "array",
       "items": {
-        "$ref": "archival_resource.json#/definitions/core",
+        "$ref": "archival_resource.json#/definitions/info",
         "default": []
       }
     }

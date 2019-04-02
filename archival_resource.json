@@ -1,79 +1,79 @@
 {
   "description": "JSON Schema for archival resources",
   "definitions": {
-    "core": {
+    "info": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "container": {
-          "$ref": "#/definitions/archival_resource"
-        },
-        "serialNumber": {
-          "type": [
-            "string",
-            "number"
-          ]
-        },
-        "callNumber": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": [
-                "string",
-                "number"
-              ]
-            },
-            "temporary": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
-        }
+        "id": {"$ref": "id-attr"},
+        "container": {"$ref": "#/definitions/info"},
+        "serialNumber": {"$ref": "serial-number-attr"},
+        "callNumber": {"$ref": "call-number-attr"}
       }
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "http://github.com/toboter/schema/raw/master/archival_resource.json",
   "type": "object",
+  "required": ["schema", "id"],
   "properties": {
     "schema": {
       "type": "string",
-      "required": true,
       "enum": [
         "http://github.com/toboter/schema/raw/master/archival_resource.json"
       ]
     },
-    "$ref": "#/definitions/archival_resource",
-    "collection": {
+    "id": {
+      "id": "id-attr",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "container": {
+      "$ref": "#/definitions/info"
+    },
+    "serialNumber": {
+      "id": "serial-number-attr",
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "callNumber": {
+      "id": "call-number-attr",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "temporary": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "collectionData": {
       "allOf": [
-        {"$ref": "collection.json#/definitions/core"},
+        {
+          "$ref": "collection.json#/definitions/info"
+        },
         {
           "properties": {
-            "holder": {
-              "$ref": "holder.json#/definitions/core"
+            "holderData": {
+              "$ref": "holder.json#/definitions/info"
             }
           }
         }
-      ],
+      ]
     },
     "numberOfPieces": {
       "type": "string"
     },
     "title": {
-      "id": "language-variable",
-      "type": "object",
-      "patternProperties": {
-        "^([a-z]{2})$": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
+      "$ref": "shared.json#/definitions/languages"
     },
     "label": {
       "type": "string"
@@ -82,48 +82,13 @@
       "type": "string"
     },
     "summary": {
-      "$ref": "language-variable"
+      "$ref": "shared.json#/definitions/languages"
     },
     "comment": {
-      "$ref": "language-variable"
+      "$ref": "shared.json#/definitions/languages"
     },
     "measurements": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "required": true,
-            "enum": [
-              "length",
-              "width",
-              "height",
-              "depth",
-              "diamenter",
-              "weight"
-            ]
-          },
-          "value": {
-            "type": "number",
-            "required": true
-          },
-          "unit": {
-            "type": "string",
-            "required": true,
-            "enum": [
-              "mm",
-              "cm",
-              "m",
-              "zoll",
-              "mg",
-              "g",
-              "kg"
-            ]
-          },
-          "additionalProperties": false
-        }
-      }
+      "$ref": "shared.json#/definitions/measurements"
     },
     "locations": {
       "type": "array",
@@ -134,39 +99,7 @@
             "type": "string"
           },
           "deposited": {
-            "id": "date-variable",
-            "type": [{
-              "properties": {
-                "date-parts": {
-                  "type": "array",
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": [
-                        "string",
-                        "number"
-                      ]
-                    },
-                    "maxItems": 3
-                  },
-                  "maxItems": 2
-                },
-                "circa": {
-                  "type": [
-                    "string",
-                    "number",
-                    "boolean"
-                  ]
-                },
-                "literal": {
-                  "type": "string"
-                },
-                "raw": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            }]
+            "$ref": "shared.json#/definitions/date-variable"
           },
           "responsible": {
             "type": "object",
@@ -175,47 +108,19 @@
                 "type": "string"
               },
               "personData": {
-                "$ref": "person.json"
-              },
-              "additionalProperties": false
-            }
+                "$ref": "person.json#/definitions/info"
+              }
+            },
+            "additionalProperties": false
           },
           "comment": {
-            "$ref": "language-variable"
+            "$ref": "shared.json#/definitions/languages"
           },
-          "type": {
-            "type": "string",
-            "enum": [
-              "Point",
-              "LineString",
-              "Polygon",
-              "MultiPoint",
-              "MultiLineString",
-              "MultiPolygon"
-            ]
-          },
-          "coordinates": {
-            "type": "array",
-            "items": {
-              "oneOf" : [
-                {
-                  "type" : "string",
-                  "minItems": 2,
-                  "maxItems": 3
-                },
-                {
-                  "type" : "array",
-                  "items": {
-                    "type": "string",
-                    "minItems": 2,
-                    "maxItems": 3
-                  }
-                }
-              ]
-            }
-          },
-          "additionalProperties": false
-        }
+          "geo": {
+            "$ref": "shared.json#/definitions/geo"
+          }
+        },
+        "additionalProperties": false
       }
     },
     "tags": {
@@ -224,7 +129,7 @@
         "type": "object",
         "properties": {
           "vocabularyData": {
-            "$ref": "vocabulary_concept.json"
+            "$ref": "vocabulary_concept.json#/definitions/info"
           },
           "relevance": {
             "type": "number"
@@ -244,7 +149,7 @@
       }
     },
     "runtime": {
-      "$ref": "date-variable"
+      "$ref": "shared.json#/definitions/date-variable"
     },
     "people": {
       "type": "array",
@@ -258,9 +163,11 @@
               "receipient"
             ]
           },
-          "name": "string",
+          "name": {
+            "type": "string"
+          },
           "personData": {
-            "$ref": "person.json"
+            "$ref": "person.json#/definitions/info"
           }
         }
       }
@@ -269,13 +176,13 @@
       "type": "array",
       "items": {
         "type": "object",
+        "required": ["id"],
         "properties": {
           "id": {
             "type": [
               "string",
               "number"
-            ],
-            "required": true
+            ]
           },
           "itemsData": {
             "$ref": "citation_data_item.json"
@@ -328,7 +235,7 @@
             ]
           },
           "excavatedObjectData": {
-            "$ref": "excavated_object.json"
+            "$ref": "excavated_object.json#/definitions/info"
           }
         }
       }
@@ -348,7 +255,7 @@
             ]
           },
           "excavationUnitData": {
-            "$ref": "excavation_unit.json"
+            "$ref": "excavation_unit.json#/definitions/info"
           }
         }
       }
@@ -362,10 +269,10 @@
         "type": "object",
         "properties": {
           "holderData": {
-            "$ref": "person.json"
+            "$ref": "person.json#/definitions/info"
           },
           "asserted": {
-            "$ref": "date-variable"
+            "$ref": "shared.json#/definitions/date-variable"
           }
         }
       }
@@ -374,17 +281,16 @@
       "type": "array",
       "items": {
         "type": "object",
+        "required": ["id", "filename", "mimeType"],
         "properties": {
           "id": {
             "type": [
               "string",
               "number"
-            ],
-            "required": true
+            ]
           },
           "filename": {
-            "type": "string",
-            "required": true
+            "type": "string"
           },
           "title": {
             "type": "string"
@@ -393,8 +299,7 @@
             "type": "string"
           },
           "mimeType": {
-            "type": "string",
-            "required": true
+            "type": "string"
           },
           "size": {
             "type": "number"

@@ -1,5 +1,6 @@
 # Schema
 This is the official repository for schemas describing data contributed to [babylon-online.org](http://babylon-online.org).
+**cf. https://json-schema.org**
 
 # Excavation
 * these are entities which form a group with a specific naming tradition over one or more seasons
@@ -90,9 +91,9 @@ Eine Attestation ist in zweifacher Form ein Event. Sie beschreibt das Ereignis d
 ---
 
 # CitationData scheme
-Hierin wird die Struktur der bibliographischen Daten beschrieben. Siehe `citation_data_scheme.json`. `citation_data_analytics` beinhaltet Informationen welche nicht für eine Veröffentlichung gedacht sind, so z.B. Volltext und Verweise auf andere lizenzbeschränkte Daten.
+Hierin wird die Struktur der bibliographischen Daten beschrieben. Siehe `citation_data_item.json`. `citation_data_analytics` beinhaltet Informationen welche nicht für eine Veröffentlichung gedacht sind, so z.B. Volltext und Verweise auf andere lizenzbeschränkte Daten.
 
-Die Basisstruktur ist csl-json; Zusätze durch uns sind kompatibel im options hash enthalten (tags, imagery, fullText) - siehe `citation_data_schema.json`
+Die Basisstruktur ist csl-json; Zusätze durch uns sind kompatibel im options hash enthalten (tags) - siehe `citation_data_item.json`
 * https://citationstyles.org/
 * https://github.com/citation-style-language/schema
 * https://github.com/citation-style-language/schema/blob/master/csl-data.json
@@ -128,6 +129,7 @@ This repository is released under the [MIT license](LICENSE).
 
 # Tools
 * https://jsonschema.net/ zum Schema aus den Daten ableiten
+* auch https://jsonschemalint.com/#/version/draft-07/markup/json
 * automatische forms aus einem Schema generieren:
   * https://github.com/json-editor/json-editor
   * https://jsoneditoronline.org/

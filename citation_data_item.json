@@ -2,20 +2,19 @@
   "description": "JSON schema for citation data items",
   "definitions": {
   },
-  "$schema": "http://json-schema.org/draft-03/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "https://github.com/toboter/schema/raw/master/citation_data_item.json",
   "type": "object",
+  "required": ["schema", "type", "id"],
   "properties": {
     "schema": {
       "type": "string",
-      "required": true,
       "enum": [
         "https://github.com/toboter/schema/raw/master/citation_data_item.json"
       ]
     },
     "type": {
       "type": "string",
-      "required": true,
       "enum": [
         "article",
         "article-journal",
@@ -58,8 +57,7 @@
       "type": [
         "string",
         "number"
-      ],
-      "required": true
+      ]
     },
     "categories": {
       "type": "array",
@@ -80,50 +78,49 @@
       "type": "array",
       "items": {
         "id": "name-variable",
-        "type": [{
-          "properties": {
-            "family": {
-              "type": "string"
-            },
-            "given": {
-              "type": "string"
-            },
-            "dropping-particle": {
-              "type": "string"
-            },
-            "non-dropping-particle": {
-              "type": "string"
-            },
-            "suffix": {
-              "type": "string"
-            },
-            "comma-suffix": {
-              "type": [
-                "string",
-                "number",
-                "boolean"
-              ]
-            },
-            "static-ordering": {
-              "type": [
-                "string",
-                "number",
-                "boolean"
-              ]
-            },
-            "literal": {
-              "type": "string"
-            },
-            "parse-names": {
-              "type": [
-                "string",
-                "number",
-                "boolean"
-              ]
-            }
+        "type": "object",
+        "properties": {
+          "family": {
+            "type": "string"
           },
-          "additionalProperties": false
-        }]
+          "given": {
+            "type": "string"
+          },
+          "dropping-particle": {
+            "type": "string"
+          },
+          "non-dropping-particle": {
+            "type": "string"
+          },
+          "suffix": {
+            "type": "string"
+          },
+          "comma-suffix": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          },
+          "static-ordering": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          },
+          "literal": {
+            "type": "string"
+          },
+          "parse-names": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "additionalProperties": false
       }
     },
     "collection-editor": {
@@ -200,44 +197,43 @@
     },
     "accessed": {
       "id": "date-variable",
-      "type": [{
-        "properties": {
-          "date-parts": {
+      "type": "object",
+      "properties": {
+        "date-parts": {
+          "type": "array",
+          "items": {
             "type": "array",
             "items": {
-              "type": "array",
-              "items": {
-                "type": [
-                  "string",
-                  "number"
-                ]
-              },
-              "maxItems": 3
+              "type": [
+                "string",
+                "number"
+              ]
             },
-            "maxItems": 2
+            "maxItems": 3
           },
-          "season": {
-            "type": [
-              "string",
-              "number"
-            ]
-          },
-          "circa": {
-            "type": [
-              "string",
-              "number",
-              "boolean"
-            ]
-          },
-          "literal": {
-            "type": "string"
-          },
-          "raw": {
-            "type": "string"
-          }
+          "maxItems": 2
         },
-        "additionalProperties": false
-      }]
+        "season": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "circa": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "literal": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
     "container": {
       "$ref": "date-variable"
@@ -435,32 +431,19 @@
           "type": "array",
           "items": {
             "id": "vocab-variable",
-            "type": [{
-              "properties": {
-                "id": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "prefLabel": {
-                  "type": "object",
-                  "properties": {
-                    "en": {
-                      "type": "string"
-                    },
-                    "de": {
-                      "type": "string"
-                    },
-                    "fr": {
-                      "type": "string"
-                    }
-                  },
-                  "additionalProperties": false
-                }
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "prefLabel": {
+                "$ref": "shared.json#/definitions/languages"
               }
-            }]
+            }
           }
         }
       }

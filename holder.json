@@ -1,134 +1,78 @@
 {
   "description": "JSON Schema for holders of collections",
   "definitions": {
-    "core": {
+    "info": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "id": "language-variable",
-          "type": "object",
-          "patternProperties": {
-            "^([a-z]{2})$": {
-              "type": "string"
-            },
-            "additionalProperties": false
-          }
-        }
+        "id": {"$ref": "id-attr"},
+        "name": {"$ref": "name-attr"},
+        "description": {"$ref": "description-attr"}
       }
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
   "id": "http://github.com/toboter/schema/raw/master/holder.json",
   "type": "object",
+  "required": ["schema", "id"],
   "properties": {
     "schema": {
       "type": "string",
-      "required": true,
-      "enum": [
-        "http://github.com/toboter/schema/raw/master/holder.json"
+      "enum": ["http://github.com/toboter/schema/raw/master/holder.json"]
+    },
+    "id": {
+      "id": "id-attr",
+      "type": [
+        "string",
+        "number"
       ]
     },
-    "$ref": "#/definitions/core",
+    "name": {
+      "id": "name-attr",
+      "type": "string"
+    },
+    "description": {
+      "id": "description-attr",
+      "$ref": "shared.json#/definitions/languages"
+    },
     "location": {
       "type": "object",
       "properties": {
-        "adress": {
+        "address": {
           "type": "string"
         },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Point",
-            "LineString",
-            "Polygon",
-            "MultiPoint",
-            "MultiLineString",
-            "MultiPolygon"
-          ]
-        },
-        "coordinates": {
-          "type": "array",
-          "items": {
+        "geo": {
+          "$ref": "shared.json#/definitions/geo"
+        }
+      }
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "personData": {
+            "$ref": "person.json#/definitions/info"
+          },
+          "participated": {
+            "$ref": "shared.json#/definitions/date-variable"
+          },
+          "role": {
             "oneOf": [{
-              "type": "string",
-              "minItems": 2,
-              "maxItems": 3
+              "type": "string"
             }, {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "minItems": 2,
-                "maxItems": 3
-              }
+              "$ref": "vocabulary_concept.json#/definitions/info"
             }]
+          },
+          "comment": {
+            "$ref": "shared.json#/definitions/languages"
           }
         }
       }
     },
-    "people": [{
-      "personData": {
-        "$ref": "person.json"
-      },
-      "participated": {
-        "id": "date-variable",
-        "type": [{
-          "properties": {
-            "date-parts": {
-              "type": "array",
-              "items": {
-                "type": "array",
-                "items": {
-                  "type": [
-                    "string",
-                    "number"
-                  ]
-                },
-                "maxItems": 3
-              },
-              "maxItems": 2
-            },
-            "circa": {
-              "type": [
-                "string",
-                "number",
-                "boolean"
-              ]
-            },
-            "literal": {
-              "type": "string"
-            },
-            "raw": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        }]
-      },
-      "role": {
-        "oneOf": [{
-          "type": "string"
-        }, {
-          "$ref": "vocabulary_concept.json"
-        }]
-      },
-      "comment": {
-        "$ref": "language-variable"
-      }
-    }],
     "collections": {
       "type": "array",
       "items": {
-        "$ref": "collection.json#/definitions/core"
+        "$ref": "collection.json#/definitions/info"
       }
     }
   }
