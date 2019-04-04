@@ -1,6 +1,5 @@
 # Schema
-This is the official repository for schemas describing data contributed to [babylon-online.org](http://babylon-online.org).
-**cf. https://json-schema.org**
+This is the official repository for schemas describing data contributed to [babylon-online.org](http://babylon-online.org). **cf. https://json-schema.org**
 
 # Excavation
 * these are entities which form a group with a specific naming tradition over one or more seasons
@@ -11,8 +10,8 @@ This is the official repository for schemas describing data contributed to [baby
 # ExcavationUnit
 * excavationUnits are by default geojson-objects (https://tools.ietf.org/html/rfc7946, http://wiki.geojson.org/GeoJSON_draft_version_6). The artefact while being in excavation is also an excavationUnit (somehow historic) - extending the understanding of a _Befund_ which normally only describes the context in which an artefact is found, -> artefacts can e.g. also contain other units. An array of excavationFeatures is a geojson-FeatureCollection.
 * if the excavatedObject does not contain a reference at excavationUnitData it is most probably purchased.
-* if an excavationUnit is missing a reference at excavatedObjectData it is not an artefact.
-* an excavationUnit is not a stratigraphic unit. Stratigraphy has its own model with other dependencies pointing towards excavationUnits extending the graph of information.
+* if an excavationUnit is missing a reference at excavatedObjectData it is not an artefact or the artefact is lost before it was registered.
+* an excavationUnit is not a stratigraphic unit. Stratigraphy has its own model with other dependencies pointing towards excavationUnits, extending the graph of information - what is up to the researcher.
 
 ---
 
@@ -90,7 +89,7 @@ Eine Attestation ist in zweifacher Form ein Event. Sie beschreibt das Ereignis d
 
 ---
 
-# CitationData scheme
+# CitationDataItem scheme
 Hierin wird die Struktur der bibliographischen Daten beschrieben. Siehe `citation_data_item.json`. `citation_data_analytics` beinhaltet Informationen welche nicht für eine Veröffentlichung gedacht sind, so z.B. Volltext und Verweise auf andere lizenzbeschränkte Daten.
 
 Die Basisstruktur ist csl-json; Zusätze durch uns sind kompatibel im options hash enthalten (tags) - siehe `citation_data_item.json`

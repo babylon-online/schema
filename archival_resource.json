@@ -99,7 +99,7 @@
         "type": "object",
         "properties": {
           "vocabularyData": {
-            "$ref": "vocabulary_concept.json#/definitions/info"
+            "$ref": "concept.json#/definitions/info"
           },
           "relevance": {
             "type": "integer",
@@ -138,7 +138,7 @@
                   "pictured"
                 ]
               },
-              {"$ref": "vocabulary_concept.json#/definitions/info"}
+              {"$ref": "concept.json#/definitions/info"}
             ]
           },
           "name": {

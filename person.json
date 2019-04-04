@@ -146,7 +146,7 @@
                 "pictured"
               ]
             },
-            {"$ref": "vocabulary_concept.json#/definitions/info"}
+            {"$ref": "concept.json#/definitions/info"}
           ]
         },
         "archivalResourceData": {
@@ -180,7 +180,7 @@
             "role": {
               "anyOf": [
                 {"type": "string"},
-                {"$ref": "vocabulary_concept.json#/definitions/info"}
+                {"$ref": "concept.json#/definitions/info"}
               ]
             },
             "comment": {
@@ -208,7 +208,7 @@
             "role": {
               "anyOf": [
                 {"type": "string"},
-                {"$ref": "vocabulary_concept.json#/definitions/info"}
+                {"$ref": "concept.json#/definitions/info"}
               ]
             },
             "comment": {

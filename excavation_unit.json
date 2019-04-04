@@ -1,0 +1,167 @@
+{
+  "description": "JSON Schema for excavation units/features like a 'Tell', 'Areal', a artefact/excavated object, 'Grab' or 'Grube'",
+  "definitions": {
+    "info": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "id-attr"},
+        "title": {"$ref": "title-attr"},
+        "type": {"$ref": "type-attr"},
+        "geometry": {
+          "$ref": "geometry-variable"
+        },
+        "properties": {
+          "$ref": "properties-variable"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/excavation_unit.json",
+  "type": "object",
+  "required": ["schema", "type", "id"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "enum": [
+        "http://github.com/toboter/schema/raw/master/excavation_unit.json"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Feature"
+      ]
+    },
+    "id": {
+      "id": "id-attr",
+      "type": "string",
+      "format": "uri"
+    },
+    "geometry": {
+      "id": "geometry-variable",
+      "$ref": "shared.json#/definitions/geo"
+    },
+    "properties": {
+      "id": "properties-variable",
+      "type": "object",
+      "properties": {
+        "title": {"$ref": "title-attr"}
+      }
+    },
+    "title": {
+      "id": "title-attr",
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "description": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {"$ref": "shared.json#/definitions/languages"},
+          {
+            "properties": {
+              "author": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "personData": {
+                    "$ref": "person.json#/definitions/info"
+                  }
+                }
+              },
+              "authored": {
+                "$ref": "shared.json#/definitions/date-variable"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "comment": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "excavations": {
+      "type": "array",
+      "items": {
+        "$ref": "excavation.json#/definitions/info"
+      }
+    },
+    "excavated": {
+      "$ref": "shared.json#/definitions/date-variable"
+    },
+    "excavatedObjectData": {
+      "$ref": "excavated_object.json#/definitions/info"
+    },
+    "contexts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "string",
+            "enum": [
+              "contains",
+              "within"
+            ]
+          },
+          "excavationUnitData": {
+            "allOf": [
+              {"$ref": "#/definitions/info"},
+              {
+                "properties": {
+                  "excavatedObjectData": {
+                    "$ref": "excavted_object.json#/definitions/info"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "vocabularyData": {
+            "$ref": "concept.json#/definitions/info"
+          },
+          "relevance": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5
+          }
+        }
+      }
+    },
+    "citationItems": {
+      "type": "array",
+      "items": {
+        "$ref": "shared.json#/definitions/citation"
+      }
+    },
+    "archivalResources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "string",
+            "enum": [
+              "isReferencedIn",
+              "registrationDocumentedIn",
+              "isSketchedIn",
+              "isPhotographedIn"
+            ]
+          },
+          "archivalResourceData": {
+            "$ref": "archival_resource.json#/definitions/info"
+          }
+        }
+      }
+    }
+  }
+}

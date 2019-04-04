@@ -23,12 +23,12 @@
       ]
     ]
   },
-  "excavatedObjectData": {
+  "excavatedAs": {
     "id": "@excavated_object_id"
   },
   "contexts": [
     {
-      "property": ["contains", "within", "composedOf", "formsPartOf"],
+      "property": ["contains", "within"],
       "excavationUnitData": {
         "id": "@excavation_unit_id",
         "type": "Feature",

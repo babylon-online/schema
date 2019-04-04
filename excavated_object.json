@@ -184,7 +184,7 @@
         "type": "object",
         "properties": {
           "vocabularyData": {
-            "$ref": "vocabulary_concept.json#/definitions/info"
+            "$ref": "concept.json#/definitions/info"
           },
           "relevance": {
             "type": "integer",
@@ -207,7 +207,12 @@
         "properties": {
           "property": {
             "type": "string",
-            "enum": ["isReferencedIn", "registrationDocumentedIn", "isSketchedIn", "isPhotographedIn"]
+            "enum": [
+              "isReferencedIn",
+              "registrationDocumentedIn",
+              "isSketchedIn",
+              "isPhotographedIn"
+            ]
           },
           "archivalResourceData": {
             "$ref": "archival_resource.json#/definitions/info"
