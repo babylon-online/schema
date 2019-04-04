@@ -191,8 +191,16 @@
         {
           "type": "object",
           "properties": {
-            "excavationData": {
-              "$ref": "holder.json#/definitions/info"
+            "excavationSeason": {
+              "type": "object",
+              "properties":{
+                "happend": {
+                  "$ref": "shared.json#/definitions/date-variable"
+                },
+                "excavationData": {
+                  "$ref": "holder.json#/definitions/info"
+                }
+              }
             },
             "participated": {
               "$ref": "shared.json#/definitions/date-variable"

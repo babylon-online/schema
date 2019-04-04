@@ -1,0 +1,104 @@
+{
+  "description": "JSON Schema for a excavation of Babylon",
+  "definitions": {
+    "info": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "id-attr"},
+        "name": {"$ref": "name-variable"},
+        "abbr": {"$ref": "abbr-variable"},
+        "description": {"$ref": "description-variable"}
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/excavation.json",
+  "type": "object",
+  "required": ["schema", "id", "abbr"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "enum": ["http://github.com/toboter/schema/raw/master/excavation.json"]
+    },
+    "id": {
+      "id": "id-attr",
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "id": "name-attr",
+      "type": "string"
+    },
+    "abbr": {
+      "id": "abbr-attr",
+      "type": "string"
+    },
+    "description": {
+      "id": "description-attr",
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "seasons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "happend": {
+            "$ref": "shared.json#/definitions/date-variable"
+          },
+          "staff": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "anyOf": [
+                {"required": ["name"]},
+                {"required": ["personData"]}
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "personData": {
+                  "$ref": "person.json#/definitions/info"
+                },
+                "participated": {
+                  "$ref": "shared.json#/definitions/date-variable"
+                },
+                "role": {
+                  "anyOf": [
+                    {"type": "string"},
+                    {"$ref": "vocabulary_concept.json#/definitions/info"}
+                  ]
+                },
+                "comment": {
+                  "$ref": "shared.json#/definitions/languages"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "excavatedObjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "excavatedObjectData": {
+            "$ref": "excavated_object.json#/definitions/info"
+          }
+        }
+      }
+    },
+    "excavationUnits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "excavationUnitData": {
+            "$ref": "excavated_object.json#/definitions/info"
+          }
+        }
+      }
+    }
+  }
+}
