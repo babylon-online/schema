@@ -1,5 +1,5 @@
 {
-  "description": "JSON Schema for collection of objects",
+  "description": "JSON Schema for collection of excavated objects or archival resources",
   "definitions": {
     "info": {
       "type": "object",

@@ -80,6 +80,39 @@
       },
       "additionalProperties": false
     },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "raw": {
+            "type": "string"
+          },
+          "deposited": {
+            "$ref": "shared.json#/definitions/date-variable"
+          },
+          "responsible": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "personData": {
+                "$ref": "person.json#/definitions/info"
+              }
+            },
+            "additionalProperties": false
+          },
+          "comment": {
+            "$ref": "shared.json#/definitions/languages"
+          },
+          "geo": {
+            "$ref": "shared.json#/definitions/geo"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "geo": {
       "type": "object",
       "properties": {

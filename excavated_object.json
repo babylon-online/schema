@@ -1,0 +1,219 @@
+{
+  "description": "JSON Schema for excavated objects aka small finds or artefacts removed from excavation and collected by an institution",
+  "definitions": {
+    "info": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "id-attr"},
+        "excavationNumber": {"$ref": "#/definitions/excavationNumber"},
+        "collectionNumber": {"$ref": "#/definitions/collectionNumber"},
+        "title": {"$ref": "title-attr"}
+      }
+    },
+    "excavationNumber": {
+      "type": "object",
+      "required": ["literal"],
+      "properties": {
+        "excavationData": {
+          "$ref": "excavation.json#/definitions/info"
+        },
+        "number": {
+          "type": "number"
+        },
+        "numberIndex": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "alphabetical": {
+              "type": "boolean"
+            }
+          }
+        },
+        "literal": {
+          "type": "string"
+        }
+      }
+    },
+    "collectionNumber": {
+      "type": "object",
+      "required": ["literal"],
+      "properties": {
+        "collectionData": {
+          "allOf": [
+            { "$ref": "collection.json#/definitions/info" },
+            { "properties": {
+                "holderData": {
+                  "$ref": "holder.json#/definitions/info"
+                }
+              }
+            }
+          ]
+        },
+        "number": {
+          "type": "number"
+        },
+        "numberIndex": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "alphabetical": {
+              "type": "boolean"
+            }
+          }
+        },
+        "literal": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/excavated_object.json",
+  "type": "object",
+  "required": ["schema", "identification"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "enum": [
+        "http://github.com/toboter/schema/raw/master/excavated_object.json"
+      ]
+    },
+    "identification": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "id": "id-attr",
+          "type": "string",
+          "format": "uri"
+        },
+        "excavationNumber": {
+          "$ref": "#/definitions/excavationNumber"
+        },
+        "collectionNumber": {
+          "$ref": "#/definitions/collectionNumber"
+        },
+        "others": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": ["value"],
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "comment": {
+          "$ref": "shared.json#/definitions/languages"
+        },
+        "joins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["excavatedObjectData", "confidence"],
+            "properties": {
+              "excavatedObjectData": {
+                "$ref": "excavated_object.json#/definitions/info"
+              },
+              "comment": {
+                "$ref": "shared.json#/definitions/languages"
+              },
+              "confidence": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 5
+              }
+            }
+          }
+        }
+      }
+    },
+    "excavationUnitData": {
+      "$ref": "excavation_unit.json#/definitions/info"
+    },
+    "title": {
+      "id": "title-attr",
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "description": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {"$ref": "shared.json#/definitions/languages"},
+          {
+            "properties": {
+              "author": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "personData": {
+                    "$ref": "person.json#/definitions/info"
+                  }
+                }
+              },
+              "authored": {
+                "$ref": "shared.json#/definitions/date-variable"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "measurements": {
+      "$ref": "shared.json#/definitions/measurements"
+    },
+    "locations": {
+      "$ref": "shared.json#/definitions/locations"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "vocabularyData": {
+            "$ref": "vocabulary_concept.json#/definitions/info"
+          },
+          "relevance": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5
+          }
+        }
+      }
+    },
+    "citationItems": {
+      "type": "array",
+      "items": {
+        "$ref": "shared.json#/definitions/citation"
+      }
+    },
+    "archivalResources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "string",
+            "enum": ["isReferencedIn", "registrationDocumentedIn", "isSketchedIn", "isPhotographedIn"]
+          },
+          "archivalResourceData": {
+            "$ref": "archival_resource.json#/definitions/info"
+          }
+        }
+      }
+    }
+  }
+}
