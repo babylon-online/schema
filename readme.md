@@ -129,6 +129,7 @@ This repository is released under the [MIT license](LICENSE).
 
 # Tools
 * https://jsonschema.net/ zum Schema aus den Daten ableiten
+* https://www.jsonschemavalidator.net/
 * auch https://jsonschemalint.com/#/version/draft-07/markup/json
 * automatische forms aus einem Schema generieren:
   * https://github.com/json-editor/json-editor

@@ -1,11 +1,14 @@
 {
   "id": "uuid",
-  "given": "String",
-  "family": "String",
-  "droppingParticle": "String",
-  "nonDroppingParticle": "String",
-  "suffix": "String",
-  "literal": "String",
+  "prefName": {
+    "given": "String",
+    "family": "String",
+    "droppingParticle": "String",
+    "nonDroppingParticle": "String",
+    "suffix": "String",
+    "literal": "String",
+  },
+  "altName": {},
   "description": {
     "language": "String"
   },
@@ -34,7 +37,7 @@
         "id": "@bibliography_item_id"
       },
       "locator": "String",
-      "label": {"enum": ["book", "chapter", "column", "figure", "folio", "issue", "line", "note", "opus", "page", "paragraph", "part", "section", "sub verbo", "verse", "volume"]},
+      "label": "page",
       "prefix": "String",
       "suffix": "String"
     }

@@ -1,0 +1,230 @@
+{
+  "description": "JSON Schema for a person doing research on Babylon",
+  "definitions": {
+    "info": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "id-attr"},
+        "name": {"$ref": "name-variable"},
+        "about": {"$ref": "about-attr"}
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/person.json",
+  "type": "object",
+  "required": ["schema", "id", "prefName"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "enum": ["http://github.com/toboter/schema/raw/master/person.json"]
+    },
+    "id": {
+      "id": "id-attr",
+      "type": "string",
+      "format": "uri"
+    },
+    "prefName": {
+      "id": "name-variable",
+      "type": "object",
+      "anyOf": [
+        {"required": ["family"]},
+        {"required": ["given"]},
+        {"required": ["literal"]}
+      ],
+      "properties": {
+        "family": {
+          "type": "string"
+        },
+        "given": {
+          "type": "string"
+        },
+        "dropping-particle": {
+          "type": "string"
+        },
+        "non-dropping-particle": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "comma-suffix": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "static-ordering": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "literal": {
+          "type": "string"
+        },
+        "parse-names": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "altName": {
+    "$ref": "name-variable"
+  },
+  "colleague": {
+    "type": "array",
+    "items": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "birthDate": {
+    "$ref": "shared.json#/definitions/date-variable"
+  },
+  "birthPlace": {
+    "type": "string"
+  },
+  "deathDate": {
+    "$ref": "shared.json#/definitions/date-variable"
+  },
+  "deathPlace": {
+    "type": "string"
+  },
+  "about": {
+    "id": "about-attr",
+    "$ref": "shared.json#/definitions/languages"
+  },
+  "email": {
+    "type": "string",
+    "format": "email"
+  },
+  "gender": {
+    "type": "string"
+  },
+  "url": {
+    "type": "string"
+  },
+  "sameAs": {
+    "type": "array",
+    "uniqueItems": true,
+    "items": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "archivalResourceMentions": {
+    "type": "array",
+    "default": [],
+    "uniqueItems": true,
+    "items": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "author",
+                "receipient",
+                "pictured"
+              ]
+            },
+            {"$ref": "vocabulary_concept.json#/definitions/info"}
+          ]
+        },
+        "archivalResourceData": {
+          "$ref": "archival_resource.json#/definitions/info"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "classifications": {
+    "type": "array",
+    "default": [],
+    "uniqueItems": true,
+    "items": {
+      "$ref": "concept.json#/definitions/info"
+    }
+  },
+  "affiliations": {
+    "type": "array",
+    "items": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "excavationData": {
+              "$ref": "excavation.json#/definitions/info"
+            },
+            "participated": {
+              "$ref": "shared.json#/definitions/date-variable"
+            },
+            "role": {
+              "anyOf": [
+                {"type": "string"},
+                {"$ref": "vocabulary_concept.json#/definitions/info"}
+              ]
+            },
+            "comment": {
+              "$ref": "shared.json#/definitions/languages"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "excavationData": {
+              "$ref": "holder.json#/definitions/info"
+            },
+            "participated": {
+              "$ref": "shared.json#/definitions/date-variable"
+            },
+            "role": {
+              "anyOf": [
+                {"type": "string"},
+                {"$ref": "vocabulary_concept.json#/definitions/info"}
+              ]
+            },
+            "comment": {
+              "$ref": "shared.json#/definitions/languages"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "citationItems": {
+    "type": "array",
+    "default": [],
+    "uniqueItems": true,
+    "items": {
+      "$ref": "shared.json#/definitions/citation"
+    }
+  },
+  "citationDataItems": {
+    "type": "array",
+    "default": [],
+    "uniqueItems": true,
+    "items": {
+      "$ref": "citation_data_item.json"
+    }
+  }
+}

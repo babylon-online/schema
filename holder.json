@@ -57,11 +57,10 @@
             "$ref": "shared.json#/definitions/date-variable"
           },
           "role": {
-            "oneOf": [{
-              "type": "string"
-            }, {
-              "$ref": "vocabulary_concept.json#/definitions/info"
-            }]
+            "anyOf": [
+              {"type": "string"},
+              {"$ref": "vocabulary_concept.json#/definitions/info"}
+            ]
           },
           "comment": {
             "$ref": "shared.json#/definitions/languages"

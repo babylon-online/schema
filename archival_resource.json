@@ -157,10 +157,16 @@
         "type": "object",
         "properties": {
           "role": {
-            "type": "string",
-            "enum": [
-              "author",
-              "receipient"
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "author",
+                  "receipient",
+                  "pictured"
+                ]
+              },
+              {"$ref": "vocabulary_concept.json#/definitions/info"}
             ]
           },
           "name": {
@@ -175,49 +181,7 @@
     "citationItems": {
       "type": "array",
       "items": {
-        "type": "object",
-        "required": ["id"],
-        "properties": {
-          "id": {
-            "type": [
-              "string",
-              "number"
-            ]
-          },
-          "itemsData": {
-            "$ref": "citation_data_item.json"
-          },
-          "locator": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string",
-            "enum": [
-              "book",
-              "chapter",
-              "column",
-              "figure",
-              "folio",
-              "issue",
-              "line",
-              "note",
-              "opus",
-              "page",
-              "paragraph",
-              "part",
-              "section",
-              "sub verbo",
-              "verse",
-              "volume"
-            ]
-          },
-          "prefix": {
-            "type": "string"
-          },
-          "suffix": {
-            "type": "string"
-          }
-        }
+        "$ref": "shared.json#/definitions/citation"
       }
     },
     "excavatedObjects": {
