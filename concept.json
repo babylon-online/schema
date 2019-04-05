@@ -9,7 +9,10 @@
         "id": {"$ref": "id-attr"},
         "prefLabel": {"$ref": "pref-label-variable"},
         "facet": {"$ref": "#/definitions/info"},
-        "inScheme": {"$ref": "concept_scheme.json#/definitions/info"}
+        "inScheme": {
+          "type": "string",
+          "format": "uri"
+        }
       },
       "required": ["id", "prefLabel", "facetData", "schemeData"]
     }

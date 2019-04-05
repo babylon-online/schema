@@ -430,20 +430,7 @@
         "tags": {
           "type": "array",
           "items": {
-            "id": "vocab-variable",
-            "type": "object",
-            "required": ["id"],
-            "properties": {
-              "id": {
-                "type": [
-                  "string",
-                  "number"
-                ]
-              },
-              "prefLabel": {
-                "$ref": "shared.json#/definitions/languages"
-              }
-            }
+            "$ref": "concept.json#/definitions/info"
           }
         }
       }
