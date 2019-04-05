@@ -50,6 +50,7 @@ There are other applications for managing controlled vocabularies:
 * https://www.poolparty.biz/
 * http://opaquenamespace.org/
 * http://iqvoc.net/
+* https://search.google.com/structured-data/testing-tool
 
 Translators are available:
 * https://rdf-translator.appspot.com/ RDF Translator is a multi-format conversion tool for structured markup. It provides translations between data formats ranging from RDF/XML to RDFa or Microdata (with API).

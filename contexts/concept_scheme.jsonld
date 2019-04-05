@@ -24,7 +24,7 @@
     "@id": "dct:description",
     "@container": "@language"
   },
-  "hasTopConcept": {
+  "hasTopConcepts": {
     "@id": "skos:hasTopConcept"
   }
 }

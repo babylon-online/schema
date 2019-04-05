@@ -1,0 +1,148 @@
+{
+  "@context": "http://github.com/toboter/schema/raw/master/contexts/concept.jsonld",
+  "@type": "skos:Concept",
+  "description": "JSON Schema describing a vocabulary concept",
+  "definitions": {
+    "info": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "id-attr"},
+        "prefLabel": {"$ref": "pref-label-variable"},
+        "facet": {"$ref": "#/definitions/info"},
+        "inScheme": {"$ref": "concept_scheme.json#/definitions/info"}
+      },
+      "required": ["id", "prefLabel", "facetData", "schemeData"]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/concept.json",
+  "type": "object",
+  "required": ["id", "status", "inScheme", "facet", "prefLabel"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "enum": ["http://github.com/toboter/schema/raw/master/concept.json"]
+    },
+    "id": {
+      "id": "id-attr",
+      "type": "string",
+      "format": "uri"
+    },
+    "created": {
+      "id": "datetime-variable",
+      "type": "string",
+      "format": "date-time"
+    },
+    "issued": {
+      "$ref": "datetime-variable"
+    },
+    "modified": {
+      "$ref": "datetime-variable"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Unstable", "Testing", "Stable"]
+    },
+    "creator": {
+      "id": "person-variable",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "personData": {
+          "$ref": "person.json#/definitions/info"
+        }
+      },
+      "anyOf": [
+        {"required": ["name"]},
+        {"required": ["personData"]}
+      ]
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "$ref": "person-variable"
+      }
+    },
+    "publisher": {
+      "$ref": "person-variable"
+    },
+    "inScheme": {
+      "$ref": "concept_scheme.json#/definitions/info"
+    },
+    "topConceptOf": {
+      "$ref": "concept_scheme.json#/definitions/info"
+    },
+    "facet": {
+      "$ref": "concept.json#/definitions/info"
+    },
+    "prefLabel": {
+      "id": "pref-label-variable",
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "altLabel": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "hiddenLabel": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "broader": {
+      "id": "concepts-array",
+      "type": "array",
+      "items": {
+        "$ref": "concept.json#/definitions/info"
+      }
+    },
+    "narrower": {
+      "$ref": "concepts-array"
+    },
+    "related": {
+      "$ref": "concepts-array"
+    },
+    "broaderTransitive": {
+      "$ref": "concepts-array"
+    },
+    "narrowerTransitive": {
+      "$ref": "concepts-array"
+    },
+    "scopeNote": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "definition": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "example": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "historyNote": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "editorialNote": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "changeNote": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "closeMatch": {
+      "id": "match-array",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri-reference"
+      }
+    },
+    "exactMatch": {
+      "$ref": "match-array"
+    },
+    "broadMatch": {
+      "$ref": "match-array"
+    },
+    "narrowMatch": {
+      "$ref": "match-array"
+    },
+    "relatedMatch": {
+      "$ref": "match-array"
+    }
+  }
+}

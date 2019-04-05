@@ -1,0 +1,72 @@
+{
+  "@context": "http://github.com/toboter/schema/raw/master/contexts/concept_scheme.jsonld",
+  "@type": "skos:ConceptScheme",
+  "description": "JSON Schema describing a vocabulary concept",
+  "definitions": {
+    "info": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "id-attr"},
+        "title": {"$ref": "title-variable"},
+        "hasTopConcept": {"$ref": "has-top-concepts-variable"}
+      },
+      "required": ["id", "title"]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "http://github.com/toboter/schema/raw/master/concept_scheme.json",
+  "type": "object",
+  "required": ["id", "title"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "enum": ["http://github.com/toboter/schema/raw/master/concept_scheme.json"]
+    },
+    "id": {
+      "id": "id-attr",
+      "type": "string",
+      "format": "uri"
+    },
+    "created": {
+      "id": "datetime-variable",
+      "type": "string",
+      "format": "date-time"
+    },
+    "creator": {
+      "id": "person-variable",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "personData": {
+          "$ref": "person.json#/definitions/info"
+        }
+      },
+      "anyOf": [
+        {"required": ["name"]},
+        {"required": ["personData"]}
+      ]
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "$ref": "person-variable"
+      }
+    },
+    "title": {
+      "id": "title-variable",
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "note": {
+      "$ref": "shared.json#/definitions/languages"
+    },
+    "hasTopConcepts": {
+      "id": "has-top-concepts-variable",
+      "type": "array",
+      "items": {
+        "$ref": "concept.json#/definitions/info"
+      }
+    }
+  }
+}
