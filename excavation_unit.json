@@ -94,31 +94,25 @@
     "excavatedObjectData": {
       "$ref": "excavated_object.json#/definitions/info"
     },
-    "contexts": {
+    "contains": {
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "property": {
-            "type": "string",
-            "enum": [
-              "contains",
-              "within"
-            ]
-          },
-          "excavationUnitData": {
-            "allOf": [
-              {"$ref": "#/definitions/info"},
-              {
-                "properties": {
-                  "excavatedObjectData": {
-                    "$ref": "excavted_object.json#/definitions/info"
-                  }
-                }
+        "allOf": [
+          {"$ref": "#/definitions/info"},
+          {
+            "properties": {
+              "excavatedObjectData": {
+                "$ref": "excavted_object.json#/definitions/info"
               }
-            ]
+            }
           }
-        }
+        ]
+      }
+    },
+    "containedIn": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/info"
       }
     },
     "tags": {

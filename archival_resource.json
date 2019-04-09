@@ -5,7 +5,7 @@
       "type": "object",
       "properties": {
         "id": {"$ref": "id-attr"},
-        "container": {"$ref": "#/definitions/info"},
+        "containedIn": {"$ref": "#/definitions/info"},
         "serialNumber": {"$ref": "serial-number-attr"},
         "callNumber": {"$ref": "call-number-attr"}
       }
@@ -29,7 +29,7 @@
         "number"
       ]
     },
-    "container": {
+    "containedIn": {
       "$ref": "#/definitions/info"
     },
     "serialNumber": {
@@ -71,6 +71,12 @@
     },
     "numberOfPieces": {
       "type": "string"
+    },
+    "contains": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/info"
+      }
     },
     "title": {
       "$ref": "shared.json#/definitions/languages"
