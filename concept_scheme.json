@@ -1,7 +1,7 @@
 {
   "@context": "http://github.com/toboter/schema/raw/master/contexts/concept_scheme.jsonld",
   "@type": "skos:ConceptScheme",
-  "description": "JSON Schema describing a vocabulary concept",
+  "description": "JSON Schema describing a vocabulary scheme",
   "definitions": {
     "info": {
       "type": "object",

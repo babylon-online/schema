@@ -167,7 +167,8 @@
               "references",
               "registers",
               "sketches",
-              "isPhotographOf"
+              "isPhotographOf",
+              "givesDetailedInformationOf"
             ]
           },
           "excavatedObjectData": {
@@ -212,6 +213,9 @@
           }
         }
       }
+    },
+    "fullText": {
+      "type": "string"
     },
     "attachments": {
       "type": "array",

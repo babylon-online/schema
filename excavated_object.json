@@ -211,7 +211,8 @@
               "isReferencedIn",
               "registrationDocumentedIn",
               "isSketchedIn",
-              "isPhotographedIn"
+              "isPhotographedIn",
+              "givesDetailedInformation"
             ]
           },
           "archivalResourceData": {
