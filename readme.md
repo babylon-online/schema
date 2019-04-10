@@ -1,5 +1,6 @@
 # Schema
 This is the official repository for schemas describing data contributed to [babylon-online.org](http://babylon-online.org). **cf. https://json-schema.org**
+Die Verwendung von cidoc-crm als namespace ist nirgendwo auf der aktuellen cidoc-Seite vorgeschlagen. Siehe aber [hier](https://github.com/designforcontext/aac_review_tool/blob/master/data/cookbook/Which-namespace-should-I-use-for-the-CIDOC-CRM-as-LOD.md) oder [hier](https://lov.linkeddata.es/dataset/lov/vocabs/crm)
 
 # Excavation
 * these are entities which form a group with a specific naming tradition over one or more seasons

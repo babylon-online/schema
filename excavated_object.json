@@ -1,4 +1,5 @@
 {
+  "@context": "http://github.com/toboter/schema/raw/master/contexts/excavated_object.jsonld",
   "description": "JSON Schema for excavated objects aka small finds or artefacts removed from excavation and collected by an institution",
   "definitions": {
     "info": {
