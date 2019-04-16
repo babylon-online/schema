@@ -82,10 +82,10 @@
     "comment": {
       "$ref": "shared.json#/definitions/languages"
     },
-    "excavations": {
+    "excavationProjects": {
       "type": "array",
       "items": {
-        "$ref": "excavation.json#/definitions/info"
+        "$ref": "excavation_project.json#/definitions/info"
       }
     },
     "excavated": {

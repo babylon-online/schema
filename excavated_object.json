@@ -15,8 +15,8 @@
       "type": "object",
       "required": ["literal"],
       "properties": {
-        "excavationData": {
-          "$ref": "excavation.json#/definitions/info"
+        "excavationProjectData": {
+          "$ref": "excavation_project.json#/definitions/info"
         },
         "number": {
           "type": "number"

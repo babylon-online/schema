@@ -1,7 +1,7 @@
 {
   "id": "uuid",
-  "excavationData": {
-    "id": "@excavation_id",
+  "excavationProjectData": {
+    "id": "@excavation_project_id",
     "abbr": "String",
     "name": "String"
   },

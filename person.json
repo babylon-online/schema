@@ -170,9 +170,10 @@
       "oneOf": [
         {
           "type": "object",
+          "description": "A person can be an participant of multiple holders over a given timespan",
           "properties": {
-            "excavationData": {
-              "$ref": "excavation.json#/definitions/info"
+            "holderData": {
+              "$ref": "holder.json#/definitions/info"
             },
             "participated": {
               "$ref": "shared.json#/definitions/date-variable"
@@ -190,6 +191,7 @@
         },
         {
           "type": "object",
+          "description": "A person can be an participcant of an excavation season by a specific excavation project over a given timespan",
           "properties": {
             "excavationSeason": {
               "type": "object",
@@ -197,8 +199,8 @@
                 "happend": {
                   "$ref": "shared.json#/definitions/date-variable"
                 },
-                "excavationData": {
-                  "$ref": "holder.json#/definitions/info"
+                "excavationProjectData": {
+                  "$ref": "excavation_project.json#/definitions/info"
                 }
               }
             },

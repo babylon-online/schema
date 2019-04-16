@@ -1,5 +1,5 @@
 {
-  "description": "JSON Schema for a excavation of Babylon",
+  "description": "JSON Schema for a excavation project",
   "definitions": {
     "info": {
       "type": "object",
@@ -12,13 +12,13 @@
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "id": "http://github.com/toboter/schema/raw/master/excavation.json",
+  "id": "http://github.com/toboter/schema/raw/master/excavation_project.json",
   "type": "object",
   "required": ["schema", "id", "abbr"],
   "properties": {
     "schema": {
       "type": "string",
-      "enum": ["http://github.com/toboter/schema/raw/master/excavation.json"]
+      "enum": ["http://github.com/toboter/schema/raw/master/excavation_project.json"]
     },
     "id": {
       "id": "id-attr",

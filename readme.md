@@ -1,38 +1,73 @@
 # Schema
-This is the official repository for schemas describing data contributed to [babylon-online.org](http://babylon-online.org). **cf. https://json-schema.org**
-Die Verwendung von cidoc-crm als namespace ist nirgendwo auf der aktuellen cidoc-Seite vorgeschlagen. Siehe aber [hier](https://github.com/designforcontext/aac_review_tool/blob/master/data/cookbook/Which-namespace-should-I-use-for-the-CIDOC-CRM-as-LOD.md) oder [hier](https://lov.linkeddata.es/dataset/lov/vocabs/crm)
+This is the official repository for schemas describing data contributed to [babylon-online.org](http://babylon-online.org). The different classes are described with [json-schema](https://json-schema.org).
 
-# Excavation
+`urn`s generally begin with the NID 'sites' (to be registered), followed by a site, in our example "_babylon:_" as NSS. They identify the excavated Thing AND identify the object within babylon-online.org (as locator, _babylon:_ is exchanged to `http://babylon-online.org/`). We will get the following structure:
+* babylon
+  * koldewey
+    * 1899-1917
+      * units
+        * L27
+          * Bab_45278
+      * objects
+        * Bab_45278
+        * Bab_37289-2
+  * dai
+    * 1960
+    * 1961
+
+The single item exported from git, has the following envelop (more or less):
+* `sha` commit id (version)
+* `name`
+* `path`
+* `author`
+* `resource_url`
+* `content`
+
+The following describes different classes of things in the envelops content hash:
+
+---
+
+# Excavation-Project
+`id`-example: "_urn:sites:babylon:koldewey{.(season as year(-month)(-day) or datespan)}_"
 * these are entities which form a group with a specific naming tradition over one or more seasons
 * seasons happen over a specific range of time. Having people being participants over a specific range of time within this season.
 
 ---
 
 # ExcavationUnit
+`id`-example: "_urn:sites:babylon:koldewey{.(season as year(-month)(-day) or datespan)}.units.name_"
 * excavationUnits are by default geojson-objects (https://tools.ietf.org/html/rfc7946, http://wiki.geojson.org/GeoJSON_draft_version_6). The artefact while being in excavation is also an excavationUnit (somehow historic) - extending the understanding of a _Befund_ which normally only describes the context in which an artefact is found, -> artefacts can e.g. also contain other units. An array of excavationFeatures is a geojson-FeatureCollection.
 * if the excavatedObject does not contain a reference at excavationUnitData it is most probably purchased.
 * if an excavationUnit is missing a reference at excavatedObjectData it is not an artefact or the artefact is lost before it was registered.
 * an excavationUnit is not a stratigraphic unit. Stratigraphy has its own model with other dependencies pointing towards excavationUnits, extending the graph of information - what is up to the researcher.
 
+Die Verwendung von cidoc-crm als namespace ist nirgendwo auf der aktuellen cidoc-Seite vorgeschlagen. Siehe aber [hier](https://github.com/designforcontext/aac_review_tool/blob/master/data/cookbook/Which-namespace-should-I-use-for-the-CIDOC-CRM-as-LOD.md) oder [hier](https://lov.linkeddata.es/dataset/lov/vocabs/crm)
+
 ---
 
 # ExcavatedObject
+`id`-example: "_urn:sites:babylon:koldewey{.(season as year(-month)(-day) or datespan)}.objects.name_"
 
 ---
 
 # ArchivalResource
+`id`-example: "_urn:sites:babylon:koldewey{.(season as year(-month)(-day) or datespan)}.documents.name_" (e.g. name: ph-bab-3945) [better would be to reference a urn of resource in a collection]
 
 ---
 
 # Collection
+`id`-example: "_urn:sites:babylon:collections.name_" [better would be to reference a urn of a collection]
 
 ---
 
 # Holder
+`id`-example: "_urn:sites:babylon:holders.name_" [better would be to reference a urn of a holder]
 
 ---
 
 # Vocabulary scheme
+Scheme: `id`-example: "_urn:sites:babylon_"
+Concept: `id`-example: "_urn:sites:babylon:concepts.name_"
 See the files [`concept.json`, `concept_scheme.json`, `concept.jsonld`, `concept_scheme.jsonld`] for an outline of the schema.
 
 We opted for using `json` as fileformat, while being conform with the _SKOS Simple Knowledge Organization System_ described [here](https://www.w3.org/TR/skos-primer/). For our usage as a lookup vocabulary, `json` fulfills the needs of being fast and easily usable. We extend our json with json-ld on the domain level for those applications which like to use it.
@@ -92,6 +127,8 @@ Eine Attestation ist in zweifacher Form ein Event. Sie beschreibt das Ereignis d
 ---
 
 # CitationDataItem scheme
+`id`-example: "_urn:issn:xyz_"
+`id`-example: "_urn:isbn:xyz_"
 Hierin wird die Struktur der bibliographischen Daten beschrieben. Siehe `citation_data_item.json`. `citation_data_analytics` beinhaltet Informationen welche nicht für eine Veröffentlichung gedacht sind, so z.B. Volltext und Verweise auf andere lizenzbeschränkte Daten.
 
 Die Basisstruktur ist csl-json; Zusätze durch uns sind kompatibel im options hash enthalten (tags) - siehe `citation_data_item.json`
@@ -106,6 +143,7 @@ Einträge in den Bibliograpiedateien sind folgendermaßen benannt/ haben folgend
 
 ### Offene Fragen
 * Sollten die einzelnen json Objekte in einer Datei als Array gespeichert sein, wie im csl-data schema vorgesehen oder einzeln? => Aufgrund von options: :fulltext könnte eine einzelne Datei sehr groß werden.
+* SICI URN?
 
 ### Eintragstypen
 ["article", "article-journal", "article-magazine", "article-newspaper", "bill", "book", "broadcast", "chapter", "dataset", "entry", "entry-dictionary", "entry-encyclopedia", "figure", "graphic", "interview", "legal_case", "legislation", "manuscript", "map", "motion_picture", "musical_score", "pamphlet", "paper-conference", "patent", "personal_communication", "post", "post-weblog", "report", "review", "review-book", "song", "speech", "thesis", "treaty", "webpage"] siehe auch [hier](https://github.com/citation-style-language/schema/blob/f01ba9c5ec2055e381a38598919a379255c496c5/csl-data.json#L12).
@@ -122,6 +160,7 @@ Achtung: Ein _Incollection_ ist vom Typ her ein _Chapter_. Eine _Collection_ ein
 ---
 
 # Person schema
+`id`-example: "_urn:sites:babylon:people.name_"
 
 ---
 
